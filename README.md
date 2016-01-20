@@ -1,7 +1,7 @@
 # easyTron
 
-easyTron is a 2D clone of Armagetron.
-**PRE-ALPHA**, so don't expect too much ye.
+easyTron is a 2D clone of Armagetron, currently in **PRE-ALPHA**, so don't expect too much yet.
+
 This project will have a focus on multiplayer gaming, including a mode, where multiple participants will share one display but can use their own (networkbased) input device (laptop, smartphone,...)
 
 <!-- [toc] -->
