@@ -1,0 +1,730 @@
+This is METAFONT, Version 2.7182818 (TeX Live 2015/dev/Debian) (preloaded base=mf 2015.4.27)  20 JAN 2016 13:26
+**CountdownWidget.cpp CountdownWidget.h game
+(CountdownWidget.cpp
+>> #include
+! Isolated expression.
+<to be read again> 
+                   "CountdownWidget.h"
+l.1 #include "CountdownWidget.h"
+                                
+? 
+! Extra tokens will be flushed.
+<to be read again> 
+                   "CountdownWidget.h"
+l.1 #include "CountdownWidget.h"
+                                
+? q
+OK, entering batchmode...
+
+! Interruption.
+l.1 #include "CountdownWidget.h"
+                                
+? 
+>> CountdownWidget
+! Isolated expression.
+<to be read again> 
+                   ::
+l.5 CountdownWidget::
+                     CountdownWidget(int countFrom, QString text, QWidget *p...
+
+? q
+OK, entering batchmode...
+! Extra tokens will be flushed.
+<to be read again> 
+                   ::
+l.5 CountdownWidget::
+                     CountdownWidget(int countFrom, QString text, QWidget *p...
+I've just read as much of that statement as I could fathom,
+so a semicolon should have been next. It's very puzzling...
+but I'll try to get myself back together, by ignoring
+everything up to the next `;'. Please insert a semicolon
+now in front of anything that you don't want me to delete.
+(See Chapter 27 of The METAFONTbook for an example.)
+
+! A statement can't begin with `}'.
+<to be read again> 
+                   }
+l.9 }
+     
+I was looking for the beginning of a new statement.
+If you just proceed without changing anything, I'll ignore
+everything up to the next `;'. Please insert a semicolon
+now in front of anything that you don't want me to delete.
+(See Chapter 27 of The METAFONTbook for an example.)
+
+! Extra tokens will be flushed.
+<to be read again> 
+                   }
+l.9 }
+     
+I've just read as much of that statement as I could fathom,
+so a semicolon should have been next. It's very puzzling...
+but I'll try to get myself back together, by ignoring
+everything up to the next `;'. Please insert a semicolon
+now in front of anything that you don't want me to delete.
+(See Chapter 27 of The METAFONTbook for an example.)
+
+! A statement can't begin with `}'.
+<to be read again> 
+                   }
+l.13 }
+      
+I was looking for the beginning of a new statement.
+If you just proceed without changing anything, I'll ignore
+everything up to the next `;'. Please insert a semicolon
+now in front of anything that you don't want me to delete.
+(See Chapter 27 of The METAFONTbook for an example.)
+
+! Extra tokens will be flushed.
+<to be read again> 
+                   }
+l.13 }
+      
+I've just read as much of that statement as I could fathom,
+so a semicolon should have been next. It's very puzzling...
+but I'll try to get myself back together, by ignoring
+everything up to the next `;'. Please insert a semicolon
+now in front of anything that you don't want me to delete.
+(See Chapter 27 of The METAFONTbook for an example.)
+
+! A secondary expression can't begin with `>'.
+<inserted text> 
+                0
+<to be read again> 
+                   >
+l.18     this->
+               layout()->setSpacing(0);
+I'm afraid I need some sort of value in order to continue,
+so I've tentatively inserted `0'. You may want to
+delete this zero and insert something else;
+see Chapter 27 of The METAFONTbook for an example.
+
+>> -layout+this
+! Unknown relation will be considered false.
+<to be read again> 
+                   (
+l.18     this->layout(
+                      )->setSpacing(0);
+Oh dear. I can't decide if the expression above is positive,
+negative, or zero. So this comparison test won't be `true'.
+
+>> false
+! Isolated expression.
+<to be read again> 
+                   (
+l.18     this->layout(
+                      )->setSpacing(0);
+I couldn't find an `=' or `:=' after the
+expression that is shown above this error message,
+so I guess I'll just ignore it and carry on.
+
+! Extra tokens will be flushed.
+<to be read again> 
+                   (
+l.18     this->layout(
+                      )->setSpacing(0);
+I've just read as much of that statement as I could fathom,
+so a semicolon should have been next. It's very puzzling...
+but I'll try to get myself back together, by ignoring
+everything up to the next `;'. Please insert a semicolon
+now in front of anything that you don't want me to delete.
+(See Chapter 27 of The METAFONTbook for an example.)
+
+! A secondary expression can't begin with `>'.
+<inserted text> 
+                0
+<to be read again> 
+                   >
+l.19     this->
+               layout()->setMargin(0);
+I'm afraid I need some sort of value in order to continue,
+so I've tentatively inserted `0'. You may want to
+delete this zero and insert something else;
+see Chapter 27 of The METAFONTbook for an example.
+
+>> -layout+this
+! Unknown relation will be considered false.
+<to be read again> 
+                   (
+l.19     this->layout(
+                      )->setMargin(0);
+Oh dear. I can't decide if the expression above is positive,
+negative, or zero. So this comparison test won't be `true'.
+
+>> false
+! Isolated expression.
+<to be read again> 
+                   (
+l.19     this->layout(
+                      )->setMargin(0);
+I couldn't find an `=' or `:=' after the
+expression that is shown above this error message,
+so I guess I'll just ignore it and carry on.
+
+! Extra tokens will be flushed.
+<to be read again> 
+                   (
+l.19     this->layout(
+                      )->setMargin(0);
+I've just read as much of that statement as I could fathom,
+so a semicolon should have been next. It's very puzzling...
+but I'll try to get myself back together, by ignoring
+everything up to the next `;'. Please insert a semicolon
+now in front of anything that you don't want me to delete.
+(See Chapter 27 of The METAFONTbook for an example.)
+
+>> QWidget
+>> w
+! Not implemented: (unknown numeric)*(unknown numeric).
+<to be read again> 
+                   =
+l.23     QWidget *w =
+                      new QWidget;
+I'm afraid I don't know how to apply that operation to that
+combination of types. Continue, and I'll return the second
+argument (see above) as the result of the operation.
+
+! A secondary expression can't begin with `>'.
+<inserted text> 
+                0
+<to be read again> 
+                   >
+l.24     this->
+               layout()->addWidget(w);
+I'm afraid I need some sort of value in order to continue,
+so I've tentatively inserted `0'. You may want to
+delete this zero and insert something else;
+see Chapter 27 of The METAFONTbook for an example.
+
+>> -layout+this
+! Unknown relation will be considered false.
+<to be read again> 
+                   (
+l.24     this->layout(
+                      )->addWidget(w);
+Oh dear. I can't decide if the expression above is positive,
+negative, or zero. So this comparison test won't be `true'.
+
+>> false
+! Isolated expression.
+<to be read again> 
+                   (
+l.24     this->layout(
+                      )->addWidget(w);
+I couldn't find an `=' or `:=' after the
+expression that is shown above this error message,
+so I guess I'll just ignore it and carry on.
+
+! Extra tokens will be flushed.
+<to be read again> 
+                   (
+l.24     this->layout(
+                      )->addWidget(w);
+I've just read as much of that statement as I could fathom,
+so a semicolon should have been next. It's very puzzling...
+but I'll try to get myself back together, by ignoring
+everything up to the next `;'. Please insert a semicolon
+now in front of anything that you don't want me to delete.
+(See Chapter 27 of The METAFONTbook for an example.)
+
+! Extra tokens will be flushed.
+<to be read again> 
+                   (
+l.26     curLabel = new QLabel(
+                               "test", w);
+I've just read as much of that statement as I could fathom,
+so a semicolon should have been next. It's very puzzling...
+but I'll try to get myself back together, by ignoring
+everything up to the next `;'. Please insert a semicolon
+now in front of anything that you don't want me to delete.
+(See Chapter 27 of The METAFONTbook for an example.)
+
+! A secondary expression can't begin with `>'.
+<inserted text> 
+                0
+<to be read again> 
+                   >
+l.27     curLabel->
+                   setStyleSheet("color:white; font-size: 30pt; font-weight:...
+I'm afraid I need some sort of value in order to continue,
+so I've tentatively inserted `0'. You may want to
+delete this zero and insert something else;
+see Chapter 27 of The METAFONTbook for an example.
+
+>> -setStyleSheet+curLabel
+! Unknown relation will be considered false.
+<to be read again> 
+                   (
+l.27     curLabel->setStyleSheet(
+                                 "color:white; font-size: 30pt; font-weight:...
+Oh dear. I can't decide if the expression above is positive,
+negative, or zero. So this comparison test won't be `true'.
+
+>> false
+! Isolated expression.
+<to be read again> 
+                   (
+l.27     curLabel->setStyleSheet(
+                                 "color:white; font-size: 30pt; font-weight:...
+I couldn't find an `=' or `:=' after the
+expression that is shown above this error message,
+so I guess I'll just ignore it and carry on.
+
+! Extra tokens will be flushed.
+<to be read again> 
+                   (
+l.27     curLabel->setStyleSheet(
+                                 "color:white; font-size: 30pt; font-weight:...
+I've just read as much of that statement as I could fathom,
+so a semicolon should have been next. It's very puzzling...
+but I'll try to get myself back together, by ignoring
+everything up to the next `;'. Please insert a semicolon
+now in front of anything that you don't want me to delete.
+(See Chapter 27 of The METAFONTbook for an example.)
+
+! A secondary expression can't begin with `>'.
+<inserted text> 
+                0
+<to be read again> 
+                   >
+l.28     curLabel->
+                   setVisible(false);
+I'm afraid I need some sort of value in order to continue,
+so I've tentatively inserted `0'. You may want to
+delete this zero and insert something else;
+see Chapter 27 of The METAFONTbook for an example.
+
+>> -setVisible+curLabel
+! Unknown relation will be considered false.
+<to be read again> 
+                   (
+l.28     curLabel->setVisible(
+                              false);
+Oh dear. I can't decide if the expression above is positive,
+negative, or zero. So this comparison test won't be `true'.
+
+>> false
+! Isolated expression.
+<to be read again> 
+                   (
+l.28     curLabel->setVisible(
+                              false);
+I couldn't find an `=' or `:=' after the
+expression that is shown above this error message,
+so I guess I'll just ignore it and carry on.
+
+! Extra tokens will be flushed.
+<to be read again> 
+                   (
+l.28     curLabel->setVisible(
+                              false);
+I've just read as much of that statement as I could fathom,
+so a semicolon should have been next. It's very puzzling...
+but I'll try to get myself back together, by ignoring
+everything up to the next `;'. Please insert a semicolon
+now in front of anything that you don't want me to delete.
+(See Chapter 27 of The METAFONTbook for an example.)
+
+! A secondary expression can't begin with `>'.
+<inserted text> 
+                0
+<to be read again> 
+                   >
+l.29     curLabel->
+                   setAlignment(Qt::AlignCenter);
+I'm afraid I need some sort of value in order to continue,
+so I've tentatively inserted `0'. You may want to
+delete this zero and insert something else;
+see Chapter 27 of The METAFONTbook for an example.
+
+>> -setAlignment+curLabel
+! Unknown relation will be considered false.
+<to be read again> 
+                   (
+l.29     curLabel->setAlignment(
+                                Qt::AlignCenter);
+Oh dear. I can't decide if the expression above is positive,
+negative, or zero. So this comparison test won't be `true'.
+
+>> false
+! Isolated expression.
+<to be read again> 
+                   (
+l.29     curLabel->setAlignment(
+                                Qt::AlignCenter);
+I couldn't find an `=' or `:=' after the
+expression that is shown above this error message,
+so I guess I'll just ignore it and carry on.
+
+! Extra tokens will be flushed.
+<to be read again> 
+                   (
+l.29     curLabel->setAlignment(
+                                Qt::AlignCenter);
+I've just read as much of that statement as I could fathom,
+so a semicolon should have been next. It's very puzzling...
+but I'll try to get myself back together, by ignoring
+everything up to the next `;'. Please insert a semicolon
+now in front of anything that you don't want me to delete.
+(See Chapter 27 of The METAFONTbook for an example.)
+
+>> Ticker
+! Isolated expression.
+<to be read again> 
+                   ::
+l.31     Ticker::
+                 start(this);
+I couldn't find an `=' or `:=' after the
+expression that is shown above this error message,
+so I guess I'll just ignore it and carry on.
+
+! Extra tokens will be flushed.
+<to be read again> 
+                   ::
+l.31     Ticker::
+                 start(this);
+I've just read as much of that statement as I could fathom,
+so a semicolon should have been next. It's very puzzling...
+but I'll try to get myself back together, by ignoring
+everything up to the next `;'. Please insert a semicolon
+now in front of anything that you don't want me to delete.
+(See Chapter 27 of The METAFONTbook for an example.)
+
+! A statement can't begin with `}'.
+<to be read again> 
+                   }
+l.32 }
+      
+I was looking for the beginning of a new statement.
+If you just proceed without changing anything, I'll ignore
+everything up to the next `;'. Please insert a semicolon
+now in front of anything that you don't want me to delete.
+(See Chapter 27 of The METAFONTbook for an example.)
+
+! Extra tokens will be flushed.
+<to be read again> 
+                   }
+l.32 }
+      
+I've just read as much of that statement as I could fathom,
+so a semicolon should have been next. It's very puzzling...
+but I'll try to get myself back together, by ignoring
+everything up to the next `;'. Please insert a semicolon
+now in front of anything that you don't want me to delete.
+(See Chapter 27 of The METAFONTbook for an example.)
+
+>> break
+! Isolated expression.
+<to be read again> 
+                   ;
+l.38         break;
+                   
+I couldn't find an `=' or `:=' after the
+expression that is shown above this error message,
+so I guess I'll just ignore it and carry on.
+
+>> case.two
+! Isolated expression.
+<to be read again> 
+                   :
+l.39     case two:
+                   show("2");
+I couldn't find an `=' or `:=' after the
+expression that is shown above this error message,
+so I guess I'll just ignore it and carry on.
+
+! Extra tokens will be flushed.
+<to be read again> 
+                   :
+l.39     case two:
+                   show("2");
+I've just read as much of that statement as I could fathom,
+so a semicolon should have been next. It's very puzzling...
+but I'll try to get myself back together, by ignoring
+everything up to the next `;'. Please insert a semicolon
+now in front of anything that you don't want me to delete.
+(See Chapter 27 of The METAFONTbook for an example.)
+
+>> break
+! Isolated expression.
+<to be read again> 
+                   ;
+l.40         break;
+                   
+I couldn't find an `=' or `:=' after the
+expression that is shown above this error message,
+so I guess I'll just ignore it and carry on.
+
+>> case.one
+! Isolated expression.
+<to be read again> 
+                   :
+l.41     case one:
+                   show("1");
+I couldn't find an `=' or `:=' after the
+expression that is shown above this error message,
+so I guess I'll just ignore it and carry on.
+
+! Extra tokens will be flushed.
+<to be read again> 
+                   :
+l.41     case one:
+                   show("1");
+I've just read as much of that statement as I could fathom,
+so a semicolon should have been next. It's very puzzling...
+but I'll try to get myself back together, by ignoring
+everything up to the next `;'. Please insert a semicolon
+now in front of anything that you don't want me to delete.
+(See Chapter 27 of The METAFONTbook for an example.)
+
+>> break
+! Isolated expression.
+<to be read again> 
+                   ;
+l.42         break;
+                   
+I couldn't find an `=' or `:=' after the
+expression that is shown above this error message,
+so I guess I'll just ignore it and carry on.
+
+>> case.go
+! Isolated expression.
+<to be read again> 
+                   :
+l.43     case go:
+                  show("GO");
+I couldn't find an `=' or `:=' after the
+expression that is shown above this error message,
+so I guess I'll just ignore it and carry on.
+
+! Extra tokens will be flushed.
+<to be read again> 
+                   :
+l.43     case go:
+                  show("GO");
+I've just read as much of that statement as I could fathom,
+so a semicolon should have been next. It's very puzzling...
+but I'll try to get myself back together, by ignoring
+everything up to the next `;'. Please insert a semicolon
+now in front of anything that you don't want me to delete.
+(See Chapter 27 of The METAFONTbook for an example.)
+
+>> break
+! Isolated expression.
+<to be read again> 
+                   ;
+l.44         break;
+                   
+I couldn't find an `=' or `:=' after the
+expression that is shown above this error message,
+so I guess I'll just ignore it and carry on.
+
+>> default
+! Isolated expression.
+<to be read again> 
+                   :
+l.45     default:
+                 
+I couldn't find an `=' or `:=' after the
+expression that is shown above this error message,
+so I guess I'll just ignore it and carry on.
+
+! Extra tokens will be flushed.
+<to be read again> 
+                   :
+l.45     default:
+                 
+I've just read as much of that statement as I could fathom,
+so a semicolon should have been next. It's very puzzling...
+but I'll try to get myself back together, by ignoring
+everything up to the next `;'. Please insert a semicolon
+now in front of anything that you don't want me to delete.
+(See Chapter 27 of The METAFONTbook for an example.)
+
+>> emit.finished
+! Isolated expression.
+<to be read again> 
+                   (
+l.47         emit finished(
+                           );
+I couldn't find an `=' or `:=' after the
+expression that is shown above this error message,
+so I guess I'll just ignore it and carry on.
+
+! Extra tokens will be flushed.
+<to be read again> 
+                   (
+l.47         emit finished(
+                           );
+I've just read as much of that statement as I could fathom,
+so a semicolon should have been next. It's very puzzling...
+but I'll try to get myself back together, by ignoring
+everything up to the next `;'. Please insert a semicolon
+now in front of anything that you don't want me to delete.
+(See Chapter 27 of The METAFONTbook for an example.)
+
+! A statement can't begin with `}'.
+<to be read again> 
+                   }
+l.48     }
+          
+I was looking for the beginning of a new statement.
+If you just proceed without changing anything, I'll ignore
+everything up to the next `;'. Please insert a semicolon
+now in front of anything that you don't want me to delete.
+(See Chapter 27 of The METAFONTbook for an example.)
+
+! Extra tokens will be flushed.
+<to be read again> 
+                   }
+l.48     }
+          
+I've just read as much of that statement as I could fathom,
+so a semicolon should have been next. It's very puzzling...
+but I'll try to get myself back together, by ignoring
+everything up to the next `;'. Please insert a semicolon
+now in front of anything that you don't want me to delete.
+(See Chapter 27 of The METAFONTbook for an example.)
+
+! A secondary expression can't begin with `>'.
+<inserted text> 
+                0
+<to be read again> 
+                   >
+l.53     curLabel->
+                   setText(text);
+I'm afraid I need some sort of value in order to continue,
+so I've tentatively inserted `0'. You may want to
+delete this zero and insert something else;
+see Chapter 27 of The METAFONTbook for an example.
+
+>> -setText+curLabel
+! Unknown relation will be considered false.
+<to be read again> 
+                   (
+l.53     curLabel->setText(
+                           text);
+Oh dear. I can't decide if the expression above is positive,
+negative, or zero. So this comparison test won't be `true'.
+
+>> false
+! Isolated expression.
+<to be read again> 
+                   (
+l.53     curLabel->setText(
+                           text);
+I couldn't find an `=' or `:=' after the
+expression that is shown above this error message,
+so I guess I'll just ignore it and carry on.
+
+! Extra tokens will be flushed.
+<to be read again> 
+                   (
+l.53     curLabel->setText(
+                           text);
+I've just read as much of that statement as I could fathom,
+so a semicolon should have been next. It's very puzzling...
+but I'll try to get myself back together, by ignoring
+everything up to the next `;'. Please insert a semicolon
+now in front of anything that you don't want me to delete.
+(See Chapter 27 of The METAFONTbook for an example.)
+
+! A secondary expression can't begin with `>'.
+<inserted text> 
+                0
+<to be read again> 
+                   >
+l.54     curLabel->
+                   setVisible(true);
+I'm afraid I need some sort of value in order to continue,
+so I've tentatively inserted `0'. You may want to
+delete this zero and insert something else;
+see Chapter 27 of The METAFONTbook for an example.
+
+>> -setVisible+curLabel
+! Unknown relation will be considered false.
+<to be read again> 
+                   (
+l.54     curLabel->setVisible(
+                              true);
+Oh dear. I can't decide if the expression above is positive,
+negative, or zero. So this comparison test won't be `true'.
+
+>> false
+! Isolated expression.
+<to be read again> 
+                   (
+l.54     curLabel->setVisible(
+                              true);
+I couldn't find an `=' or `:=' after the
+expression that is shown above this error message,
+so I guess I'll just ignore it and carry on.
+
+! Extra tokens will be flushed.
+<to be read again> 
+                   (
+l.54     curLabel->setVisible(
+                              true);
+I've just read as much of that statement as I could fathom,
+so a semicolon should have been next. It's very puzzling...
+but I'll try to get myself back together, by ignoring
+everything up to the next `;'. Please insert a semicolon
+now in front of anything that you don't want me to delete.
+(See Chapter 27 of The METAFONTbook for an example.)
+
+! A secondary expression can't begin with `>'.
+<inserted text> 
+                0
+<to be read again> 
+                   >
+l.55     curLabel->
+                   setStyleSheet("color:rgba(255, 255, 255, " + QString::num...
+I'm afraid I need some sort of value in order to continue,
+so I've tentatively inserted `0'. You may want to
+delete this zero and insert something else;
+see Chapter 27 of The METAFONTbook for an example.
+
+>> -setStyleSheet+curLabel
+! Unknown relation will be considered false.
+<to be read again> 
+                   (
+l.55     curLabel->setStyleSheet(
+                                 "color:rgba(255, 255, 255, " + QString::num...
+Oh dear. I can't decide if the expression above is positive,
+negative, or zero. So this comparison test won't be `true'.
+
+>> false
+! Isolated expression.
+<to be read again> 
+                   (
+l.55     curLabel->setStyleSheet(
+                                 "color:rgba(255, 255, 255, " + QString::num...
+I couldn't find an `=' or `:=' after the
+expression that is shown above this error message,
+so I guess I'll just ignore it and carry on.
+
+! Extra tokens will be flushed.
+<to be read again> 
+                   (
+l.55     curLabel->setStyleSheet(
+                                 "color:rgba(255, 255, 255, " + QString::num...
+I've just read as much of that statement as I could fathom,
+so a semicolon should have been next. It's very puzzling...
+but I'll try to get myself back together, by ignoring
+everything up to the next `;'. Please insert a semicolon
+now in front of anything that you don't want me to delete.
+(See Chapter 27 of The METAFONTbook for an example.)
+
+! A secondary expression can't begin with `>'.
+<inserted text> 
+                0
+<to be read again> 
+                   >
+l.57     curLabel->
+                   setGeometry(0, 0, this->width(), this->height());
+I'm afraid I need some sort of value in order to continue,
+so I've tentatively inserted `0'. You may want to
+delete this zero and insert something else;
+see Chapter 27 of The METAFONTbook for an example.
+
+>> -setGeom
