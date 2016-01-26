@@ -15,7 +15,7 @@ void GameManager::clickedPlay()
     CountdownWidget *t = new CountdownWidget(3, "");
     MainFrame::showOverlay(t, true);
 
-    Bike *bike = new Bike(100, 300, tron::right, "#ffff00");
+    Bike *bike = new Bike(300, 300, tron::right, "#ffff00");
     int keys[] = {Qt::Key_Up, Qt::Key_Right, Qt::Key_Down, Qt::Key_Left};
     new Player("Player 1", bike, keys);
 

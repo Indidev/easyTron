@@ -44,6 +44,7 @@ protected:
 
     QSize mapSize;
     QImage display;
+    QImage bg;
     QList<Bike*> bikes;
     QList<PlayingField*> fields;
     GameManager *manager;

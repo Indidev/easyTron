@@ -35,8 +35,14 @@ PlayArea::PlayArea(QList<Bike *> bikes, QSize mapSize, GameManager *manager, QLi
 
     keysEnabled = true;
 
-    display = QImage(mapSize + QSize(2 * BORDER_WIDTH,2 * BORDER_WIDTH), QImage::Format_ARGB32);
+    display = QImage(mapSize + QSize(2 * BORDER_WIDTH,2 * BORDER_WIDTH), QImage::Format_RGB32);
     display.fill(QColor("#00ff00"));
+
+    bg = QImage(mapSize, QImage::Format_RGB32);
+
+    QPainter p(&bg);
+    drawBackground(&p);
+    p.end();
 
     //layouting
     doLayout(trackedBikes);
@@ -131,17 +137,18 @@ void PlayArea::tick()
 void PlayArea::render()
 {
     QImage field(mapSize, QImage::Format_ARGB32);
+    field.fill(Qt::transparent);
     QPainter painter;
     painter.begin(&field);
 
-    drawBackground(&painter);
+    //drawBackground(&painter);
     drawBikes(&painter);
 
     painter.end();
 
-
     painter.begin(&display);
-    painter.drawImage(BORDER_WIDTH, BORDER_WIDTH, field);
+    painter.drawImage(BORDER_WIDTH, BORDER_WIDTH, bg);
+    painter.drawImage(BORDER_WIDTH - 1, BORDER_WIDTH - 1, field);
     painter.end();
 
     for (PlayingField* field : fields) {
@@ -189,11 +196,13 @@ void PlayArea::drawBikes(QPainter *painter)
         QColor bikeColor(QString::fromStdString(bike->getColor()));
 
         painter->setBrush(QBrush(bikeColor));
+        painter->setPen(QPen(bikeColor));
+
         vector<Position> path = bike->getPath();
         painter->drawEllipse(path.back().x - 3, path.back().y - 3, 6, 6);
 
         //paint walls
-        painter->setPen(QPen(bikeColor, 2));
+        painter->setPen(QPen(bikeColor, 3));
         drawWalls(path, painter);
 
         painter->setPen(QPen(bikeColor, 1));

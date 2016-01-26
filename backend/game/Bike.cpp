@@ -98,13 +98,13 @@ void Bike::calcAcceleration(vector< vector<Position> > allWalls)
             float distance = -1;
 
             // calculate distance to wall
-            if (direction < left) {
-                if (lastCorner.x == curCorner.x && isBetween(lastCorner.y, curCorner.y, position.y)) {
-                    distance = abs(position.x - curCorner.x);
-                }
-            } else {
+            if (direction % 2 ) { //if % 2 == 1 then the bike rolles vertical, otherwise horizontal
                 if (lastCorner.y == lastCorner.y&& isBetween(lastCorner.x, curCorner.x, position.x)) {
                     distance = abs(position.y - curCorner.y);
+                }
+            } else {
+                if (lastCorner.x == curCorner.x && isBetween(lastCorner.y, curCorner.y, position.y)) {
+                    distance = abs(position.x - curCorner.x);
                 }
             }
 
