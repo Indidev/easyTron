@@ -4,8 +4,6 @@ PlayArea::PlayArea(QList<Bike *> bikes, QSize mapSize, GameManager *manager, QLi
     QWidget(parent)
 {
     fpsLabel = NULL;
-    fpsEnabled = false;
-    namesEnabled = false;
     this->setLayout(new QGridLayout);
     this->layout()->setMargin(0);
     this->layout()->setSpacing(0);
@@ -90,7 +88,7 @@ void PlayArea::enableKeys(bool enable)
     keysEnabled = enable;
 }
 
-void PlayArea::showFPS(bool enable)
+void PlayArea::showFPS()
 {
     static int c = 0;
 
@@ -116,7 +114,7 @@ void PlayArea::showFPS(bool enable)
         fpsLabel->setStyleSheet("color: rgba(255, 168, 0, 255)");
     }
 
-    if (enable) {
+    if (Options::fpsVisible()) {
         if (!(c++ % 10))
             fpsLabel->setText(QString::number(Ticker::fps()));
         c %= 10;
@@ -149,7 +147,7 @@ void PlayArea::render()
     for (PlayingField* field : fields) {
         field->applyRender(display);
     }
-    showFPS(fpsEnabled);
+    showFPS();
 }
 
 void PlayArea::keyInput(QKeyEvent *event)
@@ -159,24 +157,8 @@ void PlayArea::keyInput(QKeyEvent *event)
         case Qt::Key_Escape:
             manager->pause();
             break;
-        case Qt::Key_F11:
-            toggleFPS();
-            break;
-        case Qt::Key_F10:
-            toggleNames();
-            break;
         }
     }
-}
-
-void PlayArea::toggleFPS()
-{
-    fpsEnabled = !fpsEnabled;
-}
-
-void PlayArea::toggleNames()
-{
-    namesEnabled = !namesEnabled;
 }
 
 void PlayArea::drawBackground(QPainter *painter)
@@ -216,8 +198,8 @@ void PlayArea::drawBikes(QPainter *painter)
 
         painter->setPen(QPen(bikeColor, 1));
 
-        //paint name
-        if (namesEnabled) {
+        //paint names
+        if (Options::namesVisible()) {
             QString name = bike->getPlayer()?
                         QString::fromStdString(bike->getPlayer()->getName()):
                         "CPU";

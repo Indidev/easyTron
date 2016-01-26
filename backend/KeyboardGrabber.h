@@ -4,6 +4,7 @@
 #include <QObject>
 #include <QApplication>
 #include <QKeyEvent>
+#include "KeyboardInterface.h"
 
 class KeyboardGrabber : public QObject
 {
@@ -13,6 +14,8 @@ public:
 
     virtual bool eventFilter(QObject *object, QEvent *event)override;
     static KeyboardGrabber* instance();
+    static void registerItem(KeyboardInterface *child);
+    static void unregisterItem(KeyboardInterface *child);
 
 signals:
     void keyPress(QKeyEvent *event);
@@ -23,6 +26,7 @@ public slots:
 private:
     KeyboardGrabber(QObject *parent = 0);
     static KeyboardGrabber* self;
+    QList<KeyboardInterface*> childs;
 
 };
 

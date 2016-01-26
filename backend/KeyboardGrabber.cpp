@@ -20,12 +20,20 @@ bool KeyboardGrabber::eventFilter(QObject *object, QEvent *event)
     if (event->type() == QEvent::KeyPress) {
         QKeyEvent *keyEvent = static_cast<QKeyEvent *>(event);
         emit(keyPress(keyEvent));
+
+        for (KeyboardInterface *child : childs)
+            child->onPress(keyEvent);
+
          return true;
     }
 
     if (event->type() == QEvent::KeyRelease) {
         QKeyEvent *keyEvent = static_cast<QKeyEvent *>(event);
         emit(keyRelease(keyEvent));
+
+        for (KeyboardInterface *child : childs)
+            child->onRelease(keyEvent);
+
         return true;
     }
 
@@ -38,4 +46,15 @@ KeyboardGrabber *KeyboardGrabber::instance()
         self = new KeyboardGrabber;
 
     return self;
+}
+
+void KeyboardGrabber::registerItem(KeyboardInterface *child)
+{
+    if (!instance()->childs.contains(child))
+        instance()->childs.append(child);
+}
+
+void KeyboardGrabber::unregisterItem(KeyboardInterface *child)
+{
+    instance()->childs.removeAll(child);
 }

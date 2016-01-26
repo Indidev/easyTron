@@ -27,7 +27,10 @@ SOURCES += easyTron.cpp\
     frontend/game/CountdownWidget.cpp \
     backend/Ticker.cpp \
     frontend/game/PlayingField.cpp \
-    frontend/game/GameOverScreen.cpp
+    frontend/game/GameOverScreen.cpp \
+    backend/Options.cpp \
+    backend/io/Input.cpp \
+    backend/io/Output.cpp
 
 HEADERS  += frontend/MainFrame.h \
     backend/Bike.h \
@@ -45,9 +48,36 @@ HEADERS  += frontend/MainFrame.h \
     backend/Ticker.h \
     frontend/game/PlayingField.h \
     frontend/game/GameOverScreen.h \
-    backend/BikeList.h
+    backend/BikeList.h \
+    backend/Options.h \
+    backend/io/Input.h \
+    backend/io/Output.h \
+    backend/KeyboardInterface.h
 
 FORMS    += frontend/MainFrame.ui \
     frontend/menu/MainMenu.ui \
     frontend/menu/IngameMenu.ui \
     frontend/game/GameOverScreen.ui
+
+# Define copy command for linux and windows
+QMAKE_COPY = cp -rf
+Win32:QMAKE_COPY = copy /y
+
+# cp(src, dest) returns the copy command
+defineReplace(cp) {
+    SDIR = $$PWD/$$1
+    DDIR = $$OUT_PWD/$$2
+
+    # Replace slashes in paths with backslashes for Windows
+    win32:DDIR ~= s,/,\\,g
+    win32:SDIR ~= s,/,\\,g
+
+    return($$QMAKE_COPY $$SDIR $$DDIR;)
+}
+cpFiles.commands += $$cp(versionInfo, ./)
+
+#Add dependencies to first
+first.depends += cpFiles
+
+#add dependencies to makefile
+QMAKE_EXTRA_TARGETS += first cpFiles

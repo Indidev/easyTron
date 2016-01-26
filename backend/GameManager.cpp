@@ -15,13 +15,13 @@ void GameManager::clickedPlay()
     CountdownWidget *t = new CountdownWidget(3, "");
     MainFrame::showOverlay(t, true);
 
-    Bike *bike = new Bike(100, 300, right, "#ffff00");
+    Bike *bike = new Bike(100, 300, tron::right, "#ffff00");
     int keys[] = {Qt::Key_Up, Qt::Key_Down, Qt::Key_Left, Qt::Key_Right};
     new Player("Player 1", bike, keys);
 
     int keys2[] = {Qt::Key_W, Qt::Key_S, Qt::Key_A, Qt::Key_D};
     bikes.append(bike);
-    bike = new Bike(900, 700, left, "#00ffff");
+    bike = new Bike(900, 700, tron::left, "#00ffff");
     new Player("Player 2", bike, keys2);
     bikes.append(bike);
     updater = new BikeUpdater(bikes, QRect(QPoint(0, 0), mapSize));

@@ -15,7 +15,11 @@ using std::min;
 using std::max;
 using std::string;
 
-enum Direction {up, down, left, right};
+namespace tron{
+    enum Direction {up, down, left, right};
+}
+
+using namespace tron;
 
 class Player;
 

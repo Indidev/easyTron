@@ -20,6 +20,7 @@
 #include "backend/Refreshable.h"
 #include "backend/Ticker.h"
 #include "backend/KeyboardGrabber.h"
+#include "backend/Options.h"
 
 #include "PlayingField.h"
 #include "frontend/LayeredWidget.h"
@@ -35,7 +36,7 @@ class PlayArea : public QWidget, Refreshable
 public:
     explicit PlayArea(QList<Bike*> bikes, QSize mapSize, GameManager* manager, QList<Bike*> trackedBikes = QList<Bike*>(), QWidget *parent = 0);
     void enableKeys(bool enable = true);
-    void showFPS(bool enable = true);
+    void showFPS();
     void tick();
     ~PlayArea();
 
@@ -52,8 +53,6 @@ protected:
     QLabel *fpsLabel;
     QWidget *content;
 
-    bool namesEnabled;
-    bool fpsEnabled;
     bool keysEnabled;
 
     void drawBackground(QPainter *painter);
@@ -64,8 +63,6 @@ protected:
 protected slots:
     void render();
     void keyInput(QKeyEvent *event);
-    void toggleFPS();
-    void toggleNames();
 };
 
 #endif // PLAYAREA_H
