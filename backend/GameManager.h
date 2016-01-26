@@ -18,6 +18,11 @@
 
 class PlayArea;
 
+/**
+ * @brief The GameManager class
+ * this class manages the game itself
+ * //TODO delegate tasks
+ */
 class GameManager : public QObject
 {
     Q_OBJECT

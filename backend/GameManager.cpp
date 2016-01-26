@@ -12,7 +12,7 @@ GameManager::GameManager(QObject *parent) :
 void GameManager::clickedPlay()
 {
     QSize mapSize(1000, 1000);
-    CountdownWidget *t = new CountdownWidget(3, "");
+    CountdownWidget *t = new CountdownWidget();
     MainFrame::showOverlay(t, true);
 
     Bike *bike = new Bike(300, 300, tron::right, "#ffff00");
@@ -45,7 +45,7 @@ void GameManager::clickedPlay()
 void GameManager::play()
 {
     MainFrame::removeOverlay();
-    Ticker::start(updater);
+    Ticker::enable(updater);
     playArea->enableKeys();
     bikes.enableInput();
 }
@@ -68,7 +68,14 @@ void GameManager::pause()
 
     playArea->enableKeys(false);
     bikes.enableInput(false);
-    MainFrame::showOverlay(new IngameMenu(this));
+    IngameMenu *im = new IngameMenu;
+    MainFrame::showOverlay(im);
+    connect(im, SIGNAL(resume()), this, SLOT(resume()));
+    connect(im, SIGNAL(options()), this, SLOT(clickedOptions()));
+
+    //TODO FIXTHIS!!! something still runs in the background after that.
+    connect(im, SIGNAL(exit()), this, SLOT(cleanGame()));
+    connect(im, SIGNAL(exit()), this, SLOT(showMainMenu()));
 }
 
 void GameManager::resume()
@@ -101,7 +108,10 @@ void GameManager::cleanGame()
 }
 
 void GameManager::showMainMenu() {
-    MainMenu *menu = new MainMenu(this);
-
+    MainMenu *menu = new MainMenu();
     MainFrame::showWidget(menu);
+
+    connect(menu, SIGNAL(play()), this, SLOT(clickedPlay()));
+    connect(menu, SIGNAL(options()), this, SLOT(clickedOptions()));
+    connect(menu, SIGNAL(exit()), this, SLOT(clickedExit()));
 }

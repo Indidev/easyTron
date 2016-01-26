@@ -1,7 +1,7 @@
 #include "LayeredWidget.h"
 
-LayeredWidget::LayeredWidget(QWidget *parent) :
-    QWidget(parent)
+LayeredWidget::LayeredWidget() :
+    QWidget()
 {
     this->setLayout(new QGridLayout);
     contentWidget = new QWidget;

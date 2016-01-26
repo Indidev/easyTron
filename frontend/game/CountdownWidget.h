@@ -7,19 +7,34 @@
 #include <backend/time/Refreshable.h>
 #include <backend/time/Ticker.h>
 
+/**
+ * @brief The CountdownWidget class
+ */
 class CountdownWidget : public QWidget, public Refreshable
 {
     Q_OBJECT
 public:
-    explicit CountdownWidget(int countFrom, QString text, QWidget *parent = 0);
+    /**
+     * constructor
+     * @param countFrom number to count from (0 to show just the text)
+     * @param text text to display if finished
+     */
+    explicit CountdownWidget(int countFrom = 3, QString text = "GO"); //TODO add duration for animation
+    ~CountdownWidget();
+
+    /**
+     * start animation
+     */
     void start();
 
+    /**
+     * implemented for Refreshable interface
+     */
     void tick();
-    ~CountdownWidget();
 protected:
-    enum State{three, two, one, go, fin};
     QLabel *curLabel;
-    State curState;
+    int counter;
+    QString endText;
 
     void show(QString text);
 signals:

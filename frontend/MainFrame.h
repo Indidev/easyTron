@@ -16,15 +16,38 @@ namespace Ui {
 class MainFrame;
 }
 
+/**
+ * @brief The MainFrame class
+ * the main window
+ */
 class MainFrame : public QMainWindow
 {
     Q_OBJECT
 
 public:
+    /**
+     * creates the new window
+     * @param parent not needed, //TODO maybe i should delete that
+     */
     explicit MainFrame(QWidget *parent = 0);
     ~MainFrame();
+
+    /**
+     * show a widget at the screen (deletes the old one!)
+     * @param widget widget to display
+     */
     static void showWidget(QWidget *widget);
+
+    /**
+     * shows an overlay over the current widget
+     * @param widget widget to show on the top-layer
+     * @param mouseTransparent true if you want to click through that widget
+     */
     static void showOverlay(QWidget *widget, bool mouseTransparent = false);
+
+    /**
+     * exactly what it sounds like
+     */
     static void removeOverlay();
 
 protected:

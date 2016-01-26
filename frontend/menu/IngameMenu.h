@@ -9,22 +9,34 @@ namespace Ui {
 class IngameMenu;
 }
 
-class GameManager;
-
+/**
+ * @brief The IngameMenu class
+ * ingame menu, gets visible if the player pushes esc during a game
+ */
 class IngameMenu : public QWidget
 {
     Q_OBJECT
 
 public:
-    explicit IngameMenu(GameManager *manager, QWidget *parent = 0);
+    /**
+     * creates an ingame menu
+     */
+    explicit IngameMenu();
     ~IngameMenu();
 
 protected:
     Ui::IngameMenu *ui;
-    GameManager *manager;
 
 protected slots:
     void onKey(QKeyEvent *event);
+    void c_exit() {emit(exit());}
+    void c_resume() {emit(resume());}
+    void c_options() {emit(options());}
+
+signals:
+    void resume();
+    void options();
+    void exit();
 };
 
 #endif // INGAMEMENU_H

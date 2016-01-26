@@ -9,17 +9,26 @@
 #include "Position.h"
 #include "backend/time/Refreshable.h"
 #include "backend/time/Ticker.h"
+#include "backend/game/BikeList.h"
 
 #include <iostream>
 
+/**
+ * @brief The BikeUpdater class
+ */
 class BikeUpdater : public QObject, public Refreshable
 {
     Q_OBJECT
 public:
-    explicit BikeUpdater(QList<Bike*> bikes, QRect frame);
+    /**
+     * constructor
+     * @param bikes self explaining
+     * @param frame the border of the playing-field (for collision detection with the walls)
+     */
+    explicit BikeUpdater(BikeList bikes, QRect frame);
 
 protected:
-    QList<Bike*> bikes;
+    BikeList bikes;
     vector<Position> border;
     void tick();
 signals:

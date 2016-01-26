@@ -56,20 +56,12 @@ void Ticker::removeItem(Refreshable *item)
     mutex.unlock();
 }
 
-void Ticker::start(Refreshable *item)
+void Ticker::enable(Refreshable *item, bool enabled)
 {
-    start();
+    if (enabled)
+        start();
     mutex.lock();
-    registerItem(item, true);
-    mutex.unlock();
-}
-
-void Ticker::stop(Refreshable *item)
-{
-    checkSelf();
-
-    mutex.lock();
-    registerItem(item, false);
+    registerItem(item, enabled);
     mutex.unlock();
 }
 

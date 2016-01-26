@@ -8,14 +8,41 @@
 #include "backend/util/KeyboardInterface.h"
 #include "backend/util/KeyboardGrabber.h"
 
+/**
+ * @brief The Options class
+ * contains lots of options
+ */
 class Options : public KeyboardInterface
 {
 public:
+    /**
+     * @return main version number
+     */
     static int getMainVersion();
+
+    /**
+     * @return minnor version number
+     */
     static int getMinnorVersion();
+
+    /**
+     * register options for key events
+     */
     static void registerForKeys();
+
+    /**
+     * unregister options for key events
+     */
     static void unregisterForKeys();
+
+    /**
+     * @return whether names should be visible or not
+     */
     static bool namesVisible();
+
+    /**
+     * @return whether fps should be visible or not
+     */
     static bool fpsVisible();
 
     void onPress(QKeyEvent *ev);

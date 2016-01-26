@@ -1,15 +1,15 @@
 #include "MainMenu.h"
 #include "ui_MainMenu.h"
 
-MainMenu::MainMenu(GameManager *manager, QWidget *parent) :
-    QWidget(parent),
+MainMenu::MainMenu() :
+    QWidget(),
     ui(new Ui::MainMenu)
 {
     ui->setupUi(this);
 
-    connect(ui->playBtn, SIGNAL(clicked()), manager, SLOT(clickedPlay()));
-    connect(ui->optionsBtn, SIGNAL(clicked()), manager, SLOT(clickedOptions()));
-    connect(ui->exitBtn, SIGNAL(clicked()), manager, SLOT(clickedExit()));
+    connect(ui->playBtn, SIGNAL(clicked()), this, SLOT(c_play()));
+    connect(ui->optionsBtn, SIGNAL(clicked()), this, SLOT(c_options()));
+    connect(ui->exitBtn, SIGNAL(clicked()), this, SLOT(c_exit()));
 }
 
 MainMenu::~MainMenu()

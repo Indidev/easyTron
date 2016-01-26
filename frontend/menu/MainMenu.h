@@ -9,18 +9,33 @@ namespace Ui {
 class MainMenu;
 }
 
-class GameManager;
-
+/**
+ * @brief The MainMenu class
+ * //TODO implement key actions
+ */
 class MainMenu : public QWidget
 {
     Q_OBJECT
 
 public:
-    MainMenu(GameManager *manager, QWidget *parent = 0);
+    /**
+     * constructs the main menu
+     */
+    MainMenu();
     ~MainMenu();
 
 private:
     Ui::MainMenu *ui;
+
+protected slots:
+    void c_exit() {emit(exit());}
+    void c_play() {emit(play());}
+    void c_options() {emit(options());}
+
+signals:
+    void play();
+    void options();
+    void exit();
 };
 
 #endif // MAINMENU_H

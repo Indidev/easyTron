@@ -1,7 +1,7 @@
 #include "Player.h"
 
-Player::Player(std::string name, Bike *bike, int keys[], QObject *parent) :
-    QObject(parent)
+Player::Player(std::string name, Bike *bike, int keys[]) :
+    QObject()
 {
     lastKeyinMs = 0;
     this->name = name;
@@ -10,14 +10,11 @@ Player::Player(std::string name, Bike *bike, int keys[], QObject *parent) :
     if (bike)
         bike->setPlayer(this);
 
-    timer.setSingleShot(true);
-
     for (int i = 0; i < 4; i++) {
         this->keys[i] = keys[i];
     }
 
     connect(KeyboardGrabber::instance(), SIGNAL(keyPress(QKeyEvent*)), this, SLOT(changeDirection(QKeyEvent*)));
-    connect(&timer, SIGNAL(timeout()), this, SLOT(doChange()));
 }
 
 std::string Player::getName()
@@ -33,12 +30,6 @@ void Player::changeDirection(QKeyEvent *event)
 
         }
     }
-}
-
-void Player::doChange()
-{
-    bike->changeDirection((Direction) nextDirection);
-    lastKeyinMs = (long) (std::time(0) / 1000);
 }
 
 

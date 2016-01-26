@@ -1,8 +1,8 @@
 #include "GameOverScreen.h"
 #include "ui_GameOverScreen.h"
 
-GameOverScreen::GameOverScreen(QString winner, QWidget *parent) :
-    QWidget(parent),
+GameOverScreen::GameOverScreen(QString winner) :
+    QWidget(),
     ui(new Ui::GameOverScreen)
 {
     ui->setupUi(this);

@@ -29,16 +29,35 @@ static const int BORDER_WIDTH = 2;
 
 class GameManager;
 
+/**
+ * @brief The PlayArea class
+ * the play area consists of a game layer, including one to multiple game fields, as well as status layers.
+ */
 class PlayArea : public QWidget, Refreshable
 {
     Q_OBJECT
 
 public:
-    explicit PlayArea(QList<Bike*> bikes, QSize mapSize, GameManager* manager, QList<Bike*> trackedBikes = QList<Bike*>(), QWidget *parent = 0);
-    void enableKeys(bool enable = true);
-    void showFPS();
-    void tick();
+    /**
+     * constructs a play area widget
+     * @param bikes list of all bikes which are in the game
+     * @param mapSize size of the map
+     * @param manager game manager
+     * @param trackedBikes bikes to keep track with or an empty list, to track none of the bikes
+     */
+    explicit PlayArea(QList<Bike*> bikes, QSize mapSize, GameManager* manager, QList<Bike*> trackedBikes = QList<Bike*>());
     ~PlayArea();
+
+    /**
+     * enable or disable key inputs
+     * @param enable true = enabled
+     */
+    void enableKeys(bool enable = true);
+
+    /**
+     * Refreshable interface
+     */
+    void tick();
 
 protected:
 
@@ -60,6 +79,7 @@ protected:
     void drawBikes(QPainter *painter);
     void drawWalls(vector<Position> wall, QPainter *painter);
     void doLayout(QList<Bike*> trackedBikes);
+    void showFPS();
 
 protected slots:
     void render();

@@ -1,6 +1,6 @@
 #include "BikeUpdater.h"
 
-BikeUpdater::BikeUpdater(QList<Bike *> bikes, QRect frame)
+BikeUpdater::BikeUpdater(BikeList bikes, QRect frame)
 {
     this->bikes = bikes;
 

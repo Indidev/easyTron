@@ -19,10 +19,6 @@ Bike::Bike(float x, float y, Direction startDirection, std::string color, float 
     speed = baseSpeed;
 }
 
-/**
- * get path of the bike
- * @return returns a vector of positions, building the bikes path
- */
 vector<Position> Bike::getPath()
 {
     //copy of curent path + curent postion
@@ -31,10 +27,6 @@ vector<Position> Bike::getPath()
     return p;
 }
 
-/**
- * change direction of the bike
- * @param newDirection up, down, left or right
- */
 void Bike::changeDirection(Direction newDirection)
 {
     if (!inputEnabled)
@@ -47,11 +39,6 @@ void Bike::changeDirection(Direction newDirection)
     }
 }
 
-/**
- * update the bike its position
- * @param millisecond current time in milliseconds
- * @param allWalls needed for calculating the acceleration
- */
 void Bike::update(long millisecond, vector<vector<Position> > allWalls)
 {
     checkCrash(allWalls);
@@ -59,25 +46,16 @@ void Bike::update(long millisecond, vector<vector<Position> > allWalls)
     updatePosition(millisecond);
 }
 
-/**
- * @param newColor new color
- */
 void Bike::changeColor(std::string newColor)
 {
     color = newColor;
 }
 
-/**
- * @return position of the bike
- */
 Position Bike::getPosition()
 {
     return position;
 }
 
-/**
- * @return color as string
- */
 std::string Bike::getColor()
 {
     return color;

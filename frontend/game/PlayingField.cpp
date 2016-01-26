@@ -4,8 +4,8 @@
  * @param mapSize size of the playing field
  * @param trackedBike bike to track (NULL = global view)
  */
-PlayingField::PlayingField(QSize mapSize, Bike* trackedBike, QWidget *parent) :
-    QWidget(parent)
+PlayingField::PlayingField(QSize mapSize, Bike* trackedBike) :
+    QWidget()
 {
     field = new QLabel;
     field->setAlignment(Qt::AlignCenter);
@@ -17,10 +17,6 @@ PlayingField::PlayingField(QSize mapSize, Bike* trackedBike, QWidget *parent) :
 
     this->mapSize = mapSize;
     this->trackedBike = trackedBike;
-}
-
-PlayingField::~PlayingField()
-{
 }
 
 /**

@@ -15,13 +15,26 @@
 
 #include "backend/game/Bike.h"
 
+/**
+ * @brief The PlayingField class
+ * Displays the rendered picture and is able to track a single bike.
+ */
 class PlayingField : public QWidget
 {
     Q_OBJECT
 
 public:
-    explicit PlayingField(QSize mapSize = QSize(800, 600), Bike *trackedBike = NULL, QWidget *parent = 0);
-    ~PlayingField();
+    /**
+     * construct a view of the field
+     * @param mapSize size of the map
+     * @param trackedBike tracked bike, or NULL if no bike should be tracked
+     */
+    explicit PlayingField(QSize mapSize, Bike *trackedBike = NULL);
+
+    /**
+     * applys the prerendered picture, here is where the bike-tracking (crop) or resize happens
+     * @param display prerendered picture
+     */
     void applyRender(QImage &display);
 
 private:

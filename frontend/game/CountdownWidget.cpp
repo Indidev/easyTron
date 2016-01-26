@@ -2,9 +2,11 @@
 
 static const int FACTOR = 8;
 
-CountdownWidget::CountdownWidget(int countFrom, QString text, QWidget *parent) :
-    QWidget(parent)
+CountdownWidget::CountdownWidget(int countFrom, QString text) :
+    QWidget()
 {
+    this->counter = countFrom;
+    this->endText = text;
     Ticker::registerItem(this);
 }
 
@@ -18,8 +20,6 @@ void CountdownWidget::start()
     this->layout()->setSpacing(0);
     this->layout()->setMargin(0);
 
-    curState = three;
-
     QWidget *w = new QWidget;
     this->layout()->addWidget(w);
 
@@ -28,23 +28,21 @@ void CountdownWidget::start()
     curLabel->setVisible(false);
     curLabel->setAlignment(Qt::AlignCenter);
 
-    Ticker::start(this);
+    Ticker::enable(this);
 }
 
 void CountdownWidget::tick()
 {
-    switch(curState) {
-    case three: show("3");
+    switch(counter) {
+    case 0: show(endText);
         break;
-    case two: show("2");
-        break;
-    case one: show("1");
-        break;
-    case go: show("GO");
+    case -1:
+        show("");
+        Ticker::removeItem(this);
+        emit finished();
         break;
     default:
-        show("");
-        emit finished();
+        show(QString::number(counter));
     }
 }
 
@@ -57,7 +55,7 @@ void CountdownWidget::show(QString text) {
     curLabel->setGeometry(0, 0, this->width(), this->height());
     i += FACTOR;
     if (i >= 255) {
-        curState = (State) ((int) curState + 1);
+        counter--;
         i = 0;
     }
 }
