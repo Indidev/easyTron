@@ -7,10 +7,10 @@
 
 #include "game/PlayArea.h"
 #include "LayeredWidget.h"
-#include "backend/Bike.h"
-#include "backend/BikeUpdater.h"
-#include "backend/Player.h"
-#include "backend/KeyboardGrabber.h"
+#include "backend/game/Bike.h"
+#include "backend/game/BikeUpdater.h"
+#include "backend/game/Player.h"
+#include "backend/util/KeyboardGrabber.h"
 
 namespace Ui {
 class MainFrame;

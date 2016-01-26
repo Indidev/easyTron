@@ -14,45 +14,45 @@ TEMPLATE = app
 QMAKE_CXXFLAGS += -std=c++11
 
 SOURCES += easyTron.cpp\
-        frontend/MainFrame.cpp \
-    backend/Bike.cpp \
-    backend/BikeUpdater.cpp \
-    frontend/game/PlayArea.cpp \
+    frontend/MainFrame.cpp \
+    frontend/LayeredWidget.cpp \
     frontend/menu/MainMenu.cpp \
     frontend/menu/IngameMenu.cpp \
-    backend/KeyboardGrabber.cpp \
-    backend/Player.cpp \
-    frontend/LayeredWidget.cpp \
-    backend/GameManager.cpp \
+    frontend/game/PlayArea.cpp \
     frontend/game/CountdownWidget.cpp \
-    backend/Ticker.cpp \
     frontend/game/PlayingField.cpp \
     frontend/game/GameOverScreen.cpp \
-    backend/Options.cpp \
+    backend/GameManager.cpp \
+    backend/game/Bike.cpp \
+    backend/game/BikeUpdater.cpp \
+    backend/game/Player.cpp \
+    backend/time/Ticker.cpp \
     backend/io/Input.cpp \
-    backend/io/Output.cpp
+    backend/io/Output.cpp \
+    backend/util/KeyboardGrabber.cpp \
+    backend/util/Options.cpp
 
 HEADERS  += frontend/MainFrame.h \
-    backend/Bike.h \
-    backend/Position.h \
-    backend/BikeUpdater.h \
-    frontend/game/PlayArea.h \
+    frontend/LayeredWidget.h \
     frontend/menu/MainMenu.h \
     frontend/menu/IngameMenu.h \
-    backend/KeyboardGrabber.h \
-    backend/Player.h \
-    frontend/LayeredWidget.h \
-    backend/GameManager.h \
+    frontend/game/PlayArea.h \
     frontend/game/CountdownWidget.h \
-    backend/Refreshable.h \
-    backend/Ticker.h \
     frontend/game/PlayingField.h \
     frontend/game/GameOverScreen.h \
-    backend/BikeList.h \
-    backend/Options.h \
+    backend/GameManager.h \
+    backend/game/Bike.h \
+    backend/game/Position.h \
+    backend/game/BikeUpdater.h \
+    backend/game/Player.h \
+    backend/game/BikeList.h \
+    backend/time/Ticker.h \
+    backend/time/Refreshable.h \
     backend/io/Input.h \
     backend/io/Output.h \
-    backend/KeyboardInterface.h
+    backend/util/KeyboardGrabber.h \
+    backend/util/KeyboardInterface.h \
+    backend/util/Options.h
 
 FORMS    += frontend/MainFrame.ui \
     frontend/menu/MainMenu.ui \

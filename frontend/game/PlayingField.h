@@ -13,7 +13,7 @@
 
 #include <iostream>
 
-#include "backend/Bike.h"
+#include "backend/game/Bike.h"
 
 class PlayingField : public QWidget
 {

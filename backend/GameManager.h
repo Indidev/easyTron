@@ -4,10 +4,10 @@
 #include <QObject>
 #include <QApplication>
 
-#include "BikeUpdater.h"
-#include "Bike.h"
-#include "BikeList.h"
-#include "Ticker.h"
+#include "backend/game/BikeUpdater.h"
+#include "backend/game/Bike.h"
+#include "backend/game/BikeList.h"
+#include "backend/time/Ticker.h"
 
 #include "frontend/MainFrame.h"
 #include "frontend/menu/MainMenu.h"

@@ -5,8 +5,8 @@
 
 #include "backend/io/Input.h"
 #include "backend/io/Output.h"
-#include "backend/KeyboardInterface.h"
-#include "backend/KeyboardGrabber.h"
+#include "backend/util/KeyboardInterface.h"
+#include "backend/util/KeyboardGrabber.h"
 
 class Options : public KeyboardInterface
 {

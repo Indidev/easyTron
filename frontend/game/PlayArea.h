@@ -14,13 +14,13 @@
 
 #include <iostream>
 
-#include "backend/Bike.h"
-#include "backend/BikeUpdater.h"
+#include "backend/game/Bike.h"
+#include "backend/game/BikeUpdater.h"
 #include "backend/GameManager.h"
-#include "backend/Refreshable.h"
-#include "backend/Ticker.h"
-#include "backend/KeyboardGrabber.h"
-#include "backend/Options.h"
+#include "backend/time/Refreshable.h"
+#include "backend/time/Ticker.h"
+#include "backend/util/KeyboardGrabber.h"
+#include "backend/util/Options.h"
 
 #include "PlayingField.h"
 #include "frontend/LayeredWidget.h"

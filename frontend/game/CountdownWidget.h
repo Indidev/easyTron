@@ -4,8 +4,8 @@
 #include <QWidget>
 #include <QGridLayout>
 #include <QLabel>
-#include <backend/Refreshable.h>
-#include <backend/Ticker.h>
+#include <backend/time/Refreshable.h>
+#include <backend/time/Ticker.h>
 
 class CountdownWidget : public QWidget, public Refreshable
 {

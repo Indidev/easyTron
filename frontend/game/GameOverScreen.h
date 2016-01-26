@@ -4,7 +4,7 @@
 #include <QWidget>
 #include <QKeyEvent>
 
-#include "backend/KeyboardGrabber.h"
+#include "backend/util/KeyboardGrabber.h"
 
 namespace Ui {
 class GameOverScreen;

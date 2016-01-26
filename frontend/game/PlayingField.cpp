@@ -1,5 +1,4 @@
 #include "PlayingField.h"
-#include "ui_PlayingField.h"
 
 /**
  * @param mapSize size of the playing field
