@@ -87,7 +87,6 @@ void Options::onPress(QKeyEvent *ev)
     }
 }
 
-void Options::onRelease(QKeyEvent *ev)
+void Options::onRelease(QKeyEvent *)
 {
-
 }

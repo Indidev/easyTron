@@ -40,7 +40,7 @@ void Bike::changeDirection(Direction newDirection)
     if (!inputEnabled)
         return;
 
-    if (direction != newDirection && (direction + newDirection) % 4 != 1) { //ignore same direction as well as inverse direction
+    if ((direction % 2) != (newDirection % 2)) { //ignore same direction as well as inverse direction
         direction = newDirection;
         speed -= baseSpeed / 20;
         path.push_back(position);

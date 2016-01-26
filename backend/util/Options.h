@@ -19,7 +19,7 @@ public:
     static bool fpsVisible();
 
     void onPress(QKeyEvent *ev);
-    void onRelease(QKeyEvent *ev);
+    void onRelease(QKeyEvent *);
 
 protected:
     Options();

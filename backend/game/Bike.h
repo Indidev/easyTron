@@ -16,7 +16,7 @@ using std::max;
 using std::string;
 
 namespace tron{
-    enum Direction {up, down, left, right};
+    enum Direction {up, right, down, left};
 }
 
 using namespace tron;
