@@ -4,7 +4,6 @@
 MainFrame *MainFrame::self = NULL;
 
 MainFrame::MainFrame() :
-    QMainWindow(),
     ui(new Ui::MainFrame)
 {
     init();

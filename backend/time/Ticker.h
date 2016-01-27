@@ -100,7 +100,7 @@ protected:
     static int elapsedTime;
     static int curFPS;
 
-    explicit Ticker(QObject *parent = 0);
+    explicit Ticker();
 
     static void checkSelf();
 

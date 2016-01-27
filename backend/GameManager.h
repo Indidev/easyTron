@@ -26,7 +26,7 @@ class GameManager : public QObject
 {
     Q_OBJECT
 public:
-    explicit GameManager(QObject *parent = 0);
+    explicit GameManager();
 
 signals:
 

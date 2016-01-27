@@ -1,7 +1,6 @@
 #include "PlayArea.h"
 
-PlayArea::PlayArea(QList<Bike *> bikes, QSize mapSize, GameManager *manager, QList<Bike *> trackedBikes) :
-    QWidget()
+PlayArea::PlayArea(QList<Bike *> bikes, QSize mapSize, GameManager *manager, QList<Bike *> trackedBikes)
 {
     fpsLabel = NULL;
     this->setLayout(new QGridLayout);

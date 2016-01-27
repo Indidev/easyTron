@@ -1,7 +1,6 @@
 #include "Player.h"
 
-Player::Player(std::string name, Bike *bike, int keys[]) :
-    QObject()
+Player::Player(std::string name, Bike *bike, int keys[])
 {
     lastKeyinMs = 0;
     this->name = name;

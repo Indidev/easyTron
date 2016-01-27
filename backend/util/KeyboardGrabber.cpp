@@ -2,8 +2,7 @@
 
 KeyboardGrabber *KeyboardGrabber::self = NULL;
 
-KeyboardGrabber::KeyboardGrabber(QObject *parent) :
-    QObject(parent)
+KeyboardGrabber::KeyboardGrabber()
 {
     QApplication::instance()->installEventFilter(this);
     self = NULL;

@@ -2,8 +2,7 @@
 
 static const float FPS = 60;
 
-GameManager::GameManager(QObject *parent) :
-    QObject(parent)
+GameManager::GameManager()
 {
     showMainMenu();
 }

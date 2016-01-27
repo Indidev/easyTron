@@ -50,7 +50,7 @@ signals:
     void keyRelease(QKeyEvent *event);
 
 private:
-    KeyboardGrabber(QObject *parent = 0);
+    KeyboardGrabber();
     ~KeyboardGrabber();
 
     virtual bool eventFilter(QObject *object, QEvent *event)override;

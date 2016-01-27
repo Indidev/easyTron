@@ -2,7 +2,6 @@
 #include "ui_MainMenu.h"
 
 MainMenu::MainMenu() :
-    QWidget(),
     ui(new Ui::MainMenu)
 {
     ui->setupUi(this);

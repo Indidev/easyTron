@@ -2,15 +2,15 @@
 
 static const int FACTOR = 8;
 
-CountdownWidget::CountdownWidget(int countFrom, QString text) :
-    QWidget()
+CountdownWidget::CountdownWidget(int countFrom, QString text)
 {
     this->counter = countFrom;
     this->endText = text;
     Ticker::registerItem(this);
 }
 
-CountdownWidget::~CountdownWidget() {
+CountdownWidget::~CountdownWidget()
+{
     Ticker::removeItem(this);
 }
 

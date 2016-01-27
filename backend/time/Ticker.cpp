@@ -11,8 +11,7 @@ int Ticker::elapsedTime = 0;
 bool Ticker::elapsedActive = false;
 QTime Ticker::time;
 
-Ticker::Ticker(QObject *parent) :
-    QTimer(parent)
+Ticker::Ticker()
 {
     self = this;
 

@@ -2,7 +2,6 @@
 #include "ui_IngameMenu.h"
 
 IngameMenu::IngameMenu() :
-    QWidget(),
     ui(new Ui::IngameMenu)
 {
     ui->setupUi(this);
