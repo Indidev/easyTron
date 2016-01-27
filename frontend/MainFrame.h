@@ -27,9 +27,8 @@ class MainFrame : public QMainWindow
 public:
     /**
      * creates the new window
-     * @param parent not needed, //TODO maybe i should delete that
      */
-    explicit MainFrame(QWidget *parent = 0);
+    explicit MainFrame();
     ~MainFrame();
 
     /**

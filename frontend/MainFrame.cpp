@@ -3,8 +3,8 @@
 
 MainFrame *MainFrame::self = NULL;
 
-MainFrame::MainFrame(QWidget *parent) :
-    QMainWindow(parent),
+MainFrame::MainFrame() :
+    QMainWindow(),
     ui(new Ui::MainFrame)
 {
     init();
