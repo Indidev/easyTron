@@ -5,7 +5,6 @@ static const float FPS = 60;
 GameManager::GameManager(QObject *parent) :
     QObject(parent)
 {
-    updater = NULL;
     showMainMenu();
 }
 
@@ -24,8 +23,8 @@ void GameManager::clickedPlay()
     bike = new Bike(900, 700, tron::left, "#00ffff");
     new Player("Player 2", bike, keys2);
     bikes.append(bike);
-    updater = new BikeUpdater(bikes, QRect(QPoint(0, 0), mapSize));
-    Ticker::registerItem(updater);
+    bikes.setBorder(QRect(QPoint(0, 0), mapSize));
+
     playArea = new PlayArea(bikes, mapSize, this);
 
     MainFrame::showWidget(playArea);
@@ -38,22 +37,20 @@ void GameManager::clickedPlay()
 
     connect(t, SIGNAL(finished()), this, SLOT(play()));
 
-    connect(updater, SIGNAL(gameOver(Bike*)), this, SLOT(endGame(Bike*)));
+    connect(&bikes, SIGNAL(gameOver(Bike*)), this, SLOT(endGame(Bike*)));
     t->start();
 }
 
 void GameManager::play()
 {
     MainFrame::removeOverlay();
-    Ticker::enable(updater);
     playArea->enableKeys();
     bikes.enableInput();
+    bikes.enableTicks();
 }
 
 void GameManager::clickedExit()
 {
-
-    Ticker::removeItem(updater);
     QApplication::exit(0);
 }
 
@@ -73,7 +70,6 @@ void GameManager::pause()
     connect(im, SIGNAL(resume()), this, SLOT(resume()));
     connect(im, SIGNAL(options()), this, SLOT(clickedOptions()));
 
-    //TODO FIXTHIS!!! something still runs in the background after that.
     connect(im, SIGNAL(exit()), this, SLOT(cleanGame()));
     connect(im, SIGNAL(exit()), this, SLOT(showMainMenu()));
 }
@@ -103,6 +99,7 @@ void GameManager::endGame(Bike *winner)
 
 void GameManager::cleanGame()
 {
+    bikes.enableTicks(false);
     bikes.clear();
     MainFrame::removeOverlay();
 }

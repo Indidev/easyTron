@@ -4,7 +4,6 @@
 #include <QWidget>
 #include <QGridLayout>
 #include <QLabel>
-#include <backend/time/Refreshable.h>
 #include <backend/time/Ticker.h>
 
 /**

@@ -4,7 +4,6 @@
 #include <QObject>
 #include <QApplication>
 
-#include "backend/game/BikeUpdater.h"
 #include "backend/game/Bike.h"
 #include "backend/game/BikeList.h"
 #include "backend/time/Ticker.h"
@@ -44,7 +43,6 @@ public slots:
 protected:
 
     BikeList bikes;
-    BikeUpdater *updater;
     PlayArea *playArea;
 
 protected slots:

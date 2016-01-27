@@ -8,7 +8,6 @@
 #include "game/PlayArea.h"
 #include "LayeredWidget.h"
 #include "backend/game/Bike.h"
-#include "backend/game/BikeUpdater.h"
 #include "backend/game/Player.h"
 #include "backend/util/KeyboardGrabber.h"
 

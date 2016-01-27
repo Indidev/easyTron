@@ -24,7 +24,6 @@ SOURCES += easyTron.cpp\
     frontend/game/GameOverScreen.cpp \
     backend/GameManager.cpp \
     backend/game/Bike.cpp \
-    backend/game/BikeUpdater.cpp \
     backend/game/Player.cpp \
     backend/time/Ticker.cpp \
     backend/io/Input.cpp \
@@ -43,11 +42,9 @@ HEADERS  += frontend/MainFrame.h \
     backend/GameManager.h \
     backend/game/Bike.h \
     backend/game/Position.h \
-    backend/game/BikeUpdater.h \
     backend/game/Player.h \
     backend/game/BikeList.h \
     backend/time/Ticker.h \
-    backend/time/Refreshable.h \
     backend/io/Input.h \
     backend/io/Output.h \
     backend/util/KeyboardGrabber.h \

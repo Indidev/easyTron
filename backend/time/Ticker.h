@@ -9,7 +9,7 @@
 
 using std::max;
 
-#include "Refreshable.h"
+class Refreshable;
 
 /**
  * @brief The Ticker class
@@ -106,6 +106,35 @@ protected:
 
 protected slots:
     void onTimer();
+};
+
+/**
+ * @brief The Refreshable interface
+ */
+class Refreshable {
+public:
+    /**
+     * constructor of Refreshables
+     * @param active wheteher it should be active or not, default is false
+     */
+    Refreshable(bool active = false) {
+        Ticker::registerItem(this, active);
+    }
+
+    ~Refreshable() { Ticker::removeItem(this); }
+
+    /**
+     * enable or disable ticks for this class
+     * @param enabled default = true
+     */
+    void enableTicks(bool enabled = true) {
+        Ticker::enable(this, enabled);
+    }
+
+    /**
+     * tick will be called from a timer to refresh the child class
+     */
+    virtual void tick() = 0;
 };
 
 #endif // TICKER_H
