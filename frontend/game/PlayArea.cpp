@@ -208,11 +208,7 @@ void PlayArea::drawBikes(QPainter *painter)
 
         //paint names
         if (Options::namesVisible()) {
-            QString name = bike->getPlayer()?
-                        QString::fromStdString(bike->getPlayer()->getName()):
-                        "CPU";
-
-            painter->drawText(path.back().x, path.back().y, name);
+            painter->drawText(path.back().x, path.back().y, QString::fromStdString(bike->getName()));
         }
     }
 }

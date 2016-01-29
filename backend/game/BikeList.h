@@ -3,6 +3,7 @@
 
 #include <QList>
 #include <QObject>
+#include <QRect>
 
 #include "Bike.h"
 #include "backend/time/Ticker.h"

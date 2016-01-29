@@ -13,13 +13,13 @@ void GameManager::clickedPlay()
     CountdownWidget *t = new CountdownWidget();
     MainFrame::showOverlay(t, true);
 
-    Bike *bike = new Bike(300, 300, tron::right, "#ffff00");
+    Bike *bike = new Bike(300, 300, tron::right, "Player 1", "#ffff00");
     int keys[] = {Qt::Key_Up, Qt::Key_Right, Qt::Key_Down, Qt::Key_Left};
     new Player("Player 1", bike, keys);
 
     int keys2[] = {Qt::Key_W, Qt::Key_D, Qt::Key_S, Qt::Key_A};
     bikes.append(bike);
-    bike = new Bike(900, 700, tron::left, "#00ffff");
+    bike = new Bike(900, 700, tron::left, "CPU 1", "#00ffff");
     new Player("Player 2", bike, keys2);
     bikes.append(bike);
     bikes.setBorder(QRect(QPoint(0, 0), mapSize));
@@ -83,9 +83,7 @@ void GameManager::resume()
 
 void GameManager::endGame(Bike *winner)
 {
-    GameOverScreen *gos = new GameOverScreen(winner && winner->getPlayer()?
-                                                 QString::fromStdString(winner->getPlayer()->getName()):
-                                                 "");
+    GameOverScreen *gos = new GameOverScreen(winner?QString::fromStdString(winner->getName()):"Draw");
     MainFrame::showOverlay(gos);
 
     //connect cleanup

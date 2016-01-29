@@ -1,8 +1,8 @@
 #include "Bike.h"
 
-Bike::Bike(float x, float y, Direction startDirection, std::string color, float baseSpeed, float maxSpeed, float speedUp)
+Bike::Bike(float x, float y, Direction startDirection, std::string name, std::string color, float baseSpeed, float maxSpeed, float speedUp)
 {
-    player = NULL;
+    this->name = name;
     gameOver = false;
     position = Position(x, y);
     lastPosition = position;
@@ -46,21 +46,6 @@ void Bike::update(long millisecond, vector<vector<Position> > allWalls)
     updatePosition(millisecond);
 }
 
-void Bike::changeColor(std::string newColor)
-{
-    color = newColor;
-}
-
-Position Bike::getPosition()
-{
-    return position;
-}
-
-std::string Bike::getColor()
-{
-    return color;
-}
-
 void Bike::calcAcceleration(vector< vector<Position> > allWalls)
 {
     acceleration = speed < baseSpeed? 10: -5;
@@ -92,26 +77,6 @@ void Bike::calcAcceleration(vector< vector<Position> > allWalls)
             }
         }
     }
-}
-
-bool Bike::isGameOver()
-{
-    return gameOver;
-}
-
-void Bike::setPlayer(Player *player)
-{
-    this->player = player;
-}
-
-Player *Bike::getPlayer()
-{
-    return player;
-}
-
-void Bike::enableInput(bool enabled)
-{
-    inputEnabled = enabled;
 }
 
 void Bike::updatePosition(float timePased)

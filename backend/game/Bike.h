@@ -6,7 +6,6 @@
 #include <string>
 
 #include "Position.h"
-#include "Player.h"
 
 #include <iostream>
 
@@ -39,7 +38,7 @@ public:
      * @param maxSpeed maximum speed of the bike
      * @param speedUp speedup factor
      */
-    Bike(float x, float y, Direction startDirection, string color = "#ff0000", float baseSpeed = 150, float maxSpeed = 250, float speedUp = 4.f);
+    Bike(float x, float y, Direction startDirection, string name, string color = "#ff0000", float baseSpeed = 150, float maxSpeed = 250, float speedUp = 4.f);
 
     /**
      * get path of the bike
@@ -63,39 +62,33 @@ public:
     /**
      * @param newColor new color
      */
-    void changeColor(string newColor);
+    void changeColor(string newColor) {color = newColor;}
 
     /**
      * @return color as string
      */
-    string getColor();
+    string getColor() {return color;}
 
     /**
      * @return position of the bike
      */
-    Position getPosition();
+    Position getPosition() {return position;}
 
     /**
      * @return whether the bike is in gameover-state or not
      */
-    bool isGameOver();
-
-    /**
-     * set the associated player
-     * @param player player which is related to this bike
-     */
-    void setPlayer(Player* player);
-
-    /**
-     * @return player associated with this bike or NULL if cpu
-     */
-    Player *getPlayer();
+    bool isGameOver() {return gameOver;}
 
     /**
      * enable and disable inputs
      * @param enabled true = inputs enabled, false = disabled
      */
-    void enableInput(bool enabled = true);
+    void enableInput(bool enabled = true) {inputEnabled = enabled;}
+
+    /**
+     * @return players name
+     */
+    string getName() {return name;}
 
 private:
 
@@ -107,11 +100,11 @@ private:
     float speed;            // pixel per second
     float acceleration;     // pixel per square-second
     float speedUpFactor;    // factor
+    bool gameOver;          // true if bike got crashed
+    bool inputEnabled;      // true if input is enabled
     vector<Position> path;  // path of positions
     string color;           // color-code as string
-    bool gameOver;          // true if bike got crashed
-    bool inputEnabled;
-    Player *player;
+    string name;            // name of the player
 
     bool isBetween(float point_1, float point_2, float needle);
     bool isBetween_I(int point_1, int point_2, int needle);

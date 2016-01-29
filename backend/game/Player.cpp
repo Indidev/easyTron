@@ -6,9 +6,6 @@ Player::Player(std::string name, Bike *bike, int keys[])
     this->name = name;
     this->bike = bike;
 
-    if (bike)
-        bike->setPlayer(this);
-
     for (int i = 0; i < 4; i++) {
         this->keys[i] = keys[i];
     }
