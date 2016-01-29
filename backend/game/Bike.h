@@ -57,7 +57,7 @@ public:
      * @param millisecond current time in milliseconds
      * @param allWalls needed for calculating the acceleration
      */
-    void update(long millisecond, vector<vector<Position> > allWalls);
+    void update(long millisecond, vector<vector<Position> > &allWalls);
 
     /**
      * @param newColor new color
@@ -90,6 +90,17 @@ public:
      */
     string getName() {return name;}
 
+    /**
+     * method to get walls of all players, including the border wall, usefull for impementing cpu-opponents
+     * @return
+     */
+    vector< vector<Position> > getAllWalls() {return allWalls;}
+
+    /**
+     * @return current direction the bike is facing
+     */
+    Direction getCurDirection() {return direction;}
+
 private:
 
     Position position;      // should be self explaining
@@ -105,12 +116,13 @@ private:
     vector<Position> path;  // path of positions
     string color;           // color-code as string
     string name;            // name of the player
+    vector< vector<Position> > allWalls;
 
     bool isBetween(float point_1, float point_2, float needle);
     bool isBetween_I(int point_1, int point_2, int needle);
-    bool checkCrash(vector< vector<Position> > allWalls);
+    bool checkCrash();
     void updatePosition(float timePased);
-    void calcAcceleration(vector<vector<Position> > allWalls);
+    void calcAcceleration();
 };
 
 #endif // BIKE_H

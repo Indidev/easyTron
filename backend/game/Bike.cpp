@@ -39,14 +39,15 @@ void Bike::changeDirection(Direction newDirection)
     }
 }
 
-void Bike::update(long millisecond, vector<vector<Position> > allWalls)
+void Bike::update(long millisecond, vector<vector<Position> > &allWalls)
 {
-    checkCrash(allWalls);
-    calcAcceleration(allWalls);
+    this->allWalls = allWalls;
+    checkCrash();
+    calcAcceleration();
     updatePosition(millisecond);
 }
 
-void Bike::calcAcceleration(vector< vector<Position> > allWalls)
+void Bike::calcAcceleration()
 {
     acceleration = speed < baseSpeed? 10: -5;
 
@@ -118,7 +119,7 @@ bool Bike::isBetween_I(int point_1, int point_2, int needle)
     return needle >= min(point_1, point_2) && needle <= max(point_1, point_2);
 }
 
-bool Bike::checkCrash(vector< vector<Position> > allWalls)
+bool Bike::checkCrash()
 {
     for (vector<Position> bike : allWalls) {
         if (gameOver)
