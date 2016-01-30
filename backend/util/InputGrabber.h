@@ -5,6 +5,7 @@
 #include <QApplication>
 #include <QKeyEvent>
 #include "InputInterface.h"
+#include "JoystickListener.h"
 
 //TODO remove this after testing
 #include <iostream>
@@ -53,14 +54,18 @@ signals:
      */
     void keyRelease(QKeyEvent *event);
 
-private:
+protected:
     InputGrabber();
     ~InputGrabber();
 
     virtual bool eventFilter(QObject *object, QEvent *event)override;
     static InputGrabber* self;
     QList<InputInterface*> childs;
+    JoystickListener *joyListener;
 
+protected slots:
+    void padPress(InputEvent event);
+    void padRelease(InputEvent event);
 };
 
 #endif // KEYBOARDGRABBER_H

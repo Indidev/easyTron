@@ -10,6 +10,8 @@ greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
 TARGET = EasyTron
 TEMPLATE = app
+LIBS += -lsfml-window
+LIBS += -lsfml-system
 
 QMAKE_CXXFLAGS += -std=c++11
 
@@ -30,7 +32,9 @@ SOURCES += easyTron.cpp\
     backend/io/Input.cpp \
     backend/io/Output.cpp \
     backend/util/InputGrabber.cpp \
-    backend/util/Options.cpp
+    backend/util/Options.cpp \
+    backend/util/JoystickListener.cpp \
+    backend/util/InputEvent.cpp
 
 HEADERS  += frontend/MainFrame.h \
     frontend/LayeredWidget.h \
@@ -51,7 +55,9 @@ HEADERS  += frontend/MainFrame.h \
     backend/io/Output.h \
     backend/util/Options.h \
     backend/util/InputGrabber.h \
-    backend/util/InputInterface.h
+    backend/util/InputInterface.h \
+    backend/util/JoystickListener.h \
+    backend/util/InputEvent.h
 
 FORMS    += frontend/MainFrame.ui \
     frontend/menu/MainMenu.ui \

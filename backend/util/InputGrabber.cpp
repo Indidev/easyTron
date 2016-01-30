@@ -6,11 +6,15 @@ InputGrabber::InputGrabber()
 {
     QApplication::instance()->installEventFilter(this);
     self = NULL;
+    joyListener = new JoystickListener;
+    connect(joyListener, SIGNAL(btnPress(InputEvent)), this, SLOT(padPress(InputEvent)));
+    connect(joyListener, SIGNAL(btnRelease(InputEvent)), this, SLOT(padRelease(InputEvent)));
 }
 
 InputGrabber::~InputGrabber()
 {
     QApplication::instance()->removeEventFilter(this);
+    delete joyListener;
 }
 
 bool InputGrabber::eventFilter(QObject *object, QEvent *event)
@@ -18,9 +22,6 @@ bool InputGrabber::eventFilter(QObject *object, QEvent *event)
     (void) object;
     if (event->type() == QEvent::KeyPress) {
         QKeyEvent *keyEvent = static_cast<QKeyEvent *>(event);
-
-        //TODO remove this after testing
-        cerr << "Key pressed: " << QKeySequence(keyEvent->key()).toString().toStdString() << endl;
 
         emit(keyPress(keyEvent));
 
@@ -33,9 +34,6 @@ bool InputGrabber::eventFilter(QObject *object, QEvent *event)
     if (event->type() == QEvent::KeyRelease) {
         QKeyEvent *keyEvent = static_cast<QKeyEvent *>(event);
 
-        //TODO remove this after testing
-        cerr << "Key released: " << QKeySequence(keyEvent->key()).toString().toStdString() << endl;
-
         emit(keyRelease(keyEvent));
 
         for (InputInterface *child : childs)
@@ -44,7 +42,17 @@ bool InputGrabber::eventFilter(QObject *object, QEvent *event)
         return true;
     }
 
-        return false;
+    return false;
+}
+
+void InputGrabber::padPress(InputEvent event)
+{
+    cout << "Press: " << event.toString().toStdString() << endl;
+}
+
+void InputGrabber::padRelease(InputEvent event)
+{
+    cout << "Release: " << event.toString().toStdString() << endl;
 }
 
 InputGrabber *InputGrabber::instance()
