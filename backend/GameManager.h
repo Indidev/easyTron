@@ -14,6 +14,7 @@
 #include "frontend/game/PlayArea.h"
 #include "frontend/game/CountdownWidget.h"
 #include "frontend/game/GameOverScreen.h"
+#include "backend/game/controller/LocalBikeController.h"
 
 class PlayArea;
 

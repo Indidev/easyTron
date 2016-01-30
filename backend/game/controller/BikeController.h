@@ -5,14 +5,13 @@
 
 class BikeController
 {
-public:
+protected:
     BikeController(Bike* bike);
 
     void changeDirection(tron::Direction direction);
     void turnLeft();
     void turnRight();
 
-protected:
     Bike *bike;
 };
 

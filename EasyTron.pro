@@ -24,13 +24,13 @@ SOURCES += easyTron.cpp\
     frontend/game/GameOverScreen.cpp \
     backend/GameManager.cpp \
     backend/game/Bike.cpp \
-    backend/game/Player.cpp \
+    backend/game/controller/BikeController.cpp \
+    backend/game/controller/LocalBikeController.cpp \
     backend/time/Ticker.cpp \
     backend/io/Input.cpp \
     backend/io/Output.cpp \
     backend/util/KeyboardGrabber.cpp \
-    backend/util/Options.cpp \
-    backend/game/controller/BikeController.cpp
+    backend/util/Options.cpp
 
 HEADERS  += frontend/MainFrame.h \
     frontend/LayeredWidget.h \
@@ -43,15 +43,15 @@ HEADERS  += frontend/MainFrame.h \
     backend/GameManager.h \
     backend/game/Bike.h \
     backend/game/Position.h \
-    backend/game/Player.h \
     backend/game/BikeList.h \
+    backend/game/controller/BikeController.h \
+    backend/game/controller/LocalBikeController.h \
     backend/time/Ticker.h \
     backend/io/Input.h \
     backend/io/Output.h \
     backend/util/KeyboardGrabber.h \
     backend/util/KeyboardInterface.h \
-    backend/util/Options.h \
-    backend/game/controller/BikeController.h
+    backend/util/Options.h
 
 FORMS    += frontend/MainFrame.ui \
     frontend/menu/MainMenu.ui \
