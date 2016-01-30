@@ -1,26 +1,30 @@
-#include "KeyboardGrabber.h"
+#include "InputGrabber.h"
 
-KeyboardGrabber *KeyboardGrabber::self = NULL;
+InputGrabber *InputGrabber::self = NULL;
 
-KeyboardGrabber::KeyboardGrabber()
+InputGrabber::InputGrabber()
 {
     QApplication::instance()->installEventFilter(this);
     self = NULL;
 }
 
-KeyboardGrabber::~KeyboardGrabber()
+InputGrabber::~InputGrabber()
 {
     QApplication::instance()->removeEventFilter(this);
 }
 
-bool KeyboardGrabber::eventFilter(QObject *object, QEvent *event)
+bool InputGrabber::eventFilter(QObject *object, QEvent *event)
 {
     (void) object;
     if (event->type() == QEvent::KeyPress) {
         QKeyEvent *keyEvent = static_cast<QKeyEvent *>(event);
+
+        //TODO remove this after testing
+        cerr << "Key pressed: " << QKeySequence(keyEvent->key()).toString().toStdString() << endl;
+
         emit(keyPress(keyEvent));
 
-        for (KeyboardInterface *child : childs)
+        for (InputInterface *child : childs)
             child->onPress(keyEvent);
 
          return true;
@@ -28,9 +32,13 @@ bool KeyboardGrabber::eventFilter(QObject *object, QEvent *event)
 
     if (event->type() == QEvent::KeyRelease) {
         QKeyEvent *keyEvent = static_cast<QKeyEvent *>(event);
+
+        //TODO remove this after testing
+        cerr << "Key released: " << QKeySequence(keyEvent->key()).toString().toStdString() << endl;
+
         emit(keyRelease(keyEvent));
 
-        for (KeyboardInterface *child : childs)
+        for (InputInterface *child : childs)
             child->onRelease(keyEvent);
 
         return true;
@@ -39,21 +47,21 @@ bool KeyboardGrabber::eventFilter(QObject *object, QEvent *event)
         return false;
 }
 
-KeyboardGrabber *KeyboardGrabber::instance()
+InputGrabber *InputGrabber::instance()
 {
     if (!self)
-        self = new KeyboardGrabber;
+        self = new InputGrabber;
 
     return self;
 }
 
-void KeyboardGrabber::registerItem(KeyboardInterface *child)
+void InputGrabber::registerItem(InputInterface *child)
 {
     if (!instance()->childs.contains(child))
         instance()->childs.append(child);
 }
 
-void KeyboardGrabber::unregisterItem(KeyboardInterface *child)
+void InputGrabber::unregisterItem(InputInterface *child)
 {
     instance()->childs.removeAll(child);
 }

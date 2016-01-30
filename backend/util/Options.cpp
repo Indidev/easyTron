@@ -57,12 +57,12 @@ int Options::getMinnorVersion()
 
 void Options::registerForKeys()
 {
-    KeyboardGrabber::registerItem(instance());
+    InputGrabber::registerItem(instance());
 }
 
 void Options::unregisterForKeys()
 {
-    KeyboardGrabber::unregisterItem(instance());
+    InputGrabber::unregisterItem(instance());
 }
 
 bool Options::namesVisible()

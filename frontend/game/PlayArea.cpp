@@ -50,7 +50,7 @@ PlayArea::PlayArea(QList<Bike *> bikes, QSize mapSize, GameManager *manager, QLi
     Ticker::registerItem(this, true);
 
     //connect keyboard grabber
-    connect(KeyboardGrabber::instance(), SIGNAL(keyPress(QKeyEvent*)), this, SLOT(keyInput(QKeyEvent*)));
+    connect(InputGrabber::instance(), SIGNAL(keyPress(QKeyEvent*)), this, SLOT(keyInput(QKeyEvent*)));
 }
 
 PlayArea::~PlayArea()

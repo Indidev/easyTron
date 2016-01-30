@@ -35,7 +35,7 @@ void MainFrame::init() {
     upperLayer->layout()->setMargin(0);
     upperLayer->layout()->setSpacing(0);
 
-    connect(KeyboardGrabber::instance(), SIGNAL(keyPress(QKeyEvent*)), this, SLOT(onKey(QKeyEvent*)));
+    connect(InputGrabber::instance(), SIGNAL(keyPress(QKeyEvent*)), this, SLOT(onKey(QKeyEvent*)));
 
     upperLayer->setAttribute(Qt::WA_TransparentForMouseEvents);
 }

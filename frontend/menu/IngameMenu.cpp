@@ -9,7 +9,7 @@ IngameMenu::IngameMenu() :
     connect(ui->exitButton, SIGNAL(clicked()), this, SLOT(c_exit()));
     connect(ui->resumeButton, SIGNAL(clicked()), this, SLOT(c_resume()));
     connect(ui->OptionButton, SIGNAL(clicked()), this, SLOT(c_options()));
-    connect(KeyboardGrabber::instance(), SIGNAL(keyPress(QKeyEvent*)), this, SLOT(onKey(QKeyEvent*)));
+    connect(InputGrabber::instance(), SIGNAL(keyPress(QKeyEvent*)), this, SLOT(onKey(QKeyEvent*)));
 }
 
 IngameMenu::~IngameMenu()

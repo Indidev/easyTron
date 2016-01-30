@@ -5,14 +5,14 @@
 
 #include "backend/io/Input.h"
 #include "backend/io/Output.h"
-#include "backend/util/KeyboardInterface.h"
-#include "backend/util/KeyboardGrabber.h"
+#include "backend/util/InputInterface.h"
+#include "backend/util/InputGrabber.h"
 
 /**
  * @brief The Options class
  * contains lots of options
  */
-class Options : public KeyboardInterface
+class Options : public InputInterface
 {
 public:
     /**

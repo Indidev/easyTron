@@ -7,7 +7,7 @@
  * @brief The KeyboardInterface class
  * impement this class to register yourself on the keyboard grabber
  */
-class KeyboardInterface {
+class InputInterface {
 public:
     /**
      * will be called on key-press
@@ -22,7 +22,7 @@ public:
     virtual void onRelease(QKeyEvent *event) {(void) event;}
 
 protected:
-    KeyboardInterface() {}
+    InputInterface() {}
 };
 
 #endif // KEYBOARDINTERFACE_H

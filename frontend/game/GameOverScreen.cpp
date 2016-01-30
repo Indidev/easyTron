@@ -9,7 +9,7 @@ GameOverScreen::GameOverScreen(QString winner) :
 
     connect(ui->exit_btn, SIGNAL(clicked()), this, SLOT(c_exit()));
     connect(ui->rematch_btn, SIGNAL(clicked()), this, SLOT(c_rematch()));
-    connect(KeyboardGrabber::instance(), SIGNAL(keyPress(QKeyEvent*)), this, SLOT(onKey(QKeyEvent*)));
+    connect(InputGrabber::instance(), SIGNAL(keyPress(QKeyEvent*)), this, SLOT(onKey(QKeyEvent*)));
 }
 
 GameOverScreen::~GameOverScreen()

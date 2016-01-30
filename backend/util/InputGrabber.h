@@ -4,37 +4,41 @@
 #include <QObject>
 #include <QApplication>
 #include <QKeyEvent>
-#include "KeyboardInterface.h"
+#include "InputInterface.h"
+
+//TODO remove this after testing
+#include <iostream>
+using namespace std;
 
 /**
- * @brief The KeyboardGrabber class
+ * @brief The InputGrabber class
  * Grabs keyboard signals.
  * Can be used in two ways:
  *  * connect via qt and use signals
- *  * implement "KeyboardInterface" and register onto this class
+ *  * implement "InputInterface" and register onto this class
  */
-class KeyboardGrabber : public QObject
+class InputGrabber : public QObject
 {
     Q_OBJECT
 public:
 
     /**
      * returns an instance of the keyboard grabber which can be used for signal grabbing via connect
-     * @return instance of KeyboardGrabber
+     * @return instance of InputGrabber
      */
-    static KeyboardGrabber* instance();
+    static InputGrabber* instance();
 
     /**
      * register an item for key-action notifications
      * @param child child to register
      */
-    static void registerItem(KeyboardInterface *child);
+    static void registerItem(InputInterface *child);
 
     /**
      * unregister an item from notifications
      * @param child child to unregister
      */
-    static void unregisterItem(KeyboardInterface *child);
+    static void unregisterItem(InputInterface *child);
 
 signals:
     /**
@@ -50,12 +54,12 @@ signals:
     void keyRelease(QKeyEvent *event);
 
 private:
-    KeyboardGrabber();
-    ~KeyboardGrabber();
+    InputGrabber();
+    ~InputGrabber();
 
     virtual bool eventFilter(QObject *object, QEvent *event)override;
-    static KeyboardGrabber* self;
-    QList<KeyboardInterface*> childs;
+    static InputGrabber* self;
+    QList<InputInterface*> childs;
 
 };
 

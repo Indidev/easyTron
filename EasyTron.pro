@@ -29,7 +29,7 @@ SOURCES += easyTron.cpp\
     backend/time/Ticker.cpp \
     backend/io/Input.cpp \
     backend/io/Output.cpp \
-    backend/util/KeyboardGrabber.cpp \
+    backend/util/InputGrabber.cpp \
     backend/util/Options.cpp
 
 HEADERS  += frontend/MainFrame.h \
@@ -49,9 +49,9 @@ HEADERS  += frontend/MainFrame.h \
     backend/time/Ticker.h \
     backend/io/Input.h \
     backend/io/Output.h \
-    backend/util/KeyboardGrabber.h \
-    backend/util/KeyboardInterface.h \
-    backend/util/Options.h
+    backend/util/Options.h \
+    backend/util/InputGrabber.h \
+    backend/util/InputInterface.h
 
 FORMS    += frontend/MainFrame.ui \
     frontend/menu/MainMenu.ui \

@@ -7,12 +7,12 @@ LocalBikeController::LocalBikeController(Bike* bike, int keys[]) :
         this->keys[i] = keys[i];
     }
 
-    KeyboardGrabber::registerItem(this);
+    InputGrabber::registerItem(this);
 }
 
 LocalBikeController::~LocalBikeController()
 {
-    KeyboardGrabber::unregisterItem(this);
+    InputGrabber::unregisterItem(this);
 }
 
 void LocalBikeController::onPress(QKeyEvent *event)

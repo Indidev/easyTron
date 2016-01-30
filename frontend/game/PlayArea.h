@@ -17,7 +17,7 @@
 #include "backend/game/Bike.h"
 #include "backend/GameManager.h"
 #include "backend/time/Ticker.h"
-#include "backend/util/KeyboardGrabber.h"
+#include "backend/util/InputGrabber.h"
 #include "backend/util/Options.h"
 
 #include "PlayingField.h"

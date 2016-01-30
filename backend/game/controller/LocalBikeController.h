@@ -4,13 +4,13 @@
 #include <QKeyEvent>
 
 #include "BikeController.h"
-#include "backend/util/KeyboardInterface.h"
-#include "backend/util/KeyboardGrabber.h"
+#include "backend/util/InputInterface.h"
+#include "backend/util/InputGrabber.h"
 
 /**
  * class used for local control of the bike (keyboard- / joypad-inputs)
  */
-class LocalBikeController : public BikeController, public KeyboardInterface
+class LocalBikeController : public BikeController, public InputInterface
 {
 
 public:

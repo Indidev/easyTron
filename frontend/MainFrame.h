@@ -8,7 +8,7 @@
 #include "game/PlayArea.h"
 #include "LayeredWidget.h"
 #include "backend/game/Bike.h"
-#include "backend/util/KeyboardGrabber.h"
+#include "backend/util/InputGrabber.h"
 
 namespace Ui {
 class MainFrame;
