@@ -1,7 +1,7 @@
 #ifndef BIKECONTROLLER_H
 #define BIKECONTROLLER_H
 
-#include "Bike.h"
+#include "backend/game/Bike.h"
 
 class BikeController
 {

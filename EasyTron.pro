@@ -30,7 +30,7 @@ SOURCES += easyTron.cpp\
     backend/io/Output.cpp \
     backend/util/KeyboardGrabber.cpp \
     backend/util/Options.cpp \
-    backend/game/BikeController.cpp
+    backend/game/controller/BikeController.cpp
 
 HEADERS  += frontend/MainFrame.h \
     frontend/LayeredWidget.h \
@@ -51,7 +51,7 @@ HEADERS  += frontend/MainFrame.h \
     backend/util/KeyboardGrabber.h \
     backend/util/KeyboardInterface.h \
     backend/util/Options.h \
-    backend/game/BikeController.h
+    backend/game/controller/BikeController.h
 
 FORMS    += frontend/MainFrame.ui \
     frontend/menu/MainMenu.ui \
