@@ -6,15 +6,20 @@ InputGrabber::InputGrabber()
 {
     QApplication::instance()->installEventFilter(this);
     self = NULL;
+
+#ifndef NO_SFML
     joyListener = new JoystickListener;
     connect(joyListener, SIGNAL(btnPress(InputEvent)), this, SLOT(padPress(InputEvent)));
     connect(joyListener, SIGNAL(btnRelease(InputEvent)), this, SLOT(padRelease(InputEvent)));
+#endif
 }
 
 InputGrabber::~InputGrabber()
 {
     QApplication::instance()->removeEventFilter(this);
+#ifndef NO_SFML
     delete joyListener;
+#endif
 }
 
 bool InputGrabber::eventFilter(QObject *object, QEvent *event)

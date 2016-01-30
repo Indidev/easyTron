@@ -6,6 +6,7 @@
 #include <QKeyEvent>
 #include "InputInterface.h"
 #include "JoystickListener.h"
+#include "InputEvent.h"
 
 //TODO remove this after testing
 #include <iostream>
@@ -61,8 +62,10 @@ protected:
     virtual bool eventFilter(QObject *object, QEvent *event)override;
     static InputGrabber* self;
     QList<InputInterface*> childs;
-    JoystickListener *joyListener;
 
+#ifndef NO_SFML
+    JoystickListener *joyListener;
+#endif
 protected slots:
     void padPress(InputEvent event);
     void padRelease(InputEvent event);

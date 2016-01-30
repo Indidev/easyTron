@@ -1,6 +1,8 @@
 #ifndef JOYSTICKLISTENER_H
 #define JOYSTICKLISTENER_H
 
+#ifndef NO_SFML
+
 #include <QTimer>
 #include <SFML/Window/Joystick.hpp>
 #include <QList>
@@ -48,4 +50,5 @@ protected slots:
 
 };
 
+#endif // NO_SFML
 #endif // JOYSTICKLISTENER_H

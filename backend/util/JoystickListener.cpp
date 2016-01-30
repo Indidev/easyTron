@@ -1,3 +1,5 @@
+#ifndef NO_SFML
+
 #include "JoystickListener.h"
 
 int JoystickListener::X_AXIS_MASK = 0b1000000000000;
@@ -75,3 +77,5 @@ void JoystickListener::checkButtons()
         }
     }
 }
+
+#endif
