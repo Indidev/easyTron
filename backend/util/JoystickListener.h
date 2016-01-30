@@ -18,6 +18,9 @@ class JoystickListener : public QTimer
 {
     Q_OBJECT
 public:
+    /**
+     * create a joystick listener
+     */
     explicit JoystickListener();
 
     static int X_AXIS_MASK;
@@ -34,6 +37,11 @@ public:
     static int MASK[];
     static QString NAMES[];
 
+    /**
+     * get number of a joystick out of a joystick keycode
+     * @param keycode keycode
+     * @return joystick number
+     */
     static int getJoystickNum(int keycode) {return (keycode & JOYNUM_MASK) >> JOYNUM_OFFSET;}
 
 signals:
