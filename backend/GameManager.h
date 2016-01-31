@@ -16,6 +16,10 @@
 #include "frontend/game/GameOverScreen.h"
 #include "backend/game/controller/LocalBikeController.h"
 
+// todo remove, cause not necessary for the game
+#include "backend/util/InputEvent.h"
+#include "backend/util/JoystickListener.h"
+
 class PlayArea;
 
 /**

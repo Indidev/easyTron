@@ -75,9 +75,12 @@ bool Options::fpsVisible()
     return instance()->showFPS;
 }
 
-void Options::onPress(QKeyEvent *ev)
+void Options::onPress(InputEvent ev)
 {
-    switch (ev->key()) {
+    if (ev.type() != InputEvent::qtInput)
+        return;
+
+    switch (ev.key()) {
     case Qt::Key_F11:
         toggleFPS();
         break;
@@ -85,8 +88,4 @@ void Options::onPress(QKeyEvent *ev)
         toggleNames();
         break;
     }
-}
-
-void Options::onRelease(QKeyEvent *)
-{
 }

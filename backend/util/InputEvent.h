@@ -7,6 +7,12 @@
 class InputEvent
 {
 public:
+
+    /**
+     * enum for input type
+     */
+    enum InputType{qtInput, joyInput};
+
     /**
      * creates a new Input event for a QKeyEvent
      * @param event qkeyevent
@@ -14,15 +20,13 @@ public:
     InputEvent(QKeyEvent *event);
 
     /**
-     * creates a new Input event for a Joystick
-     * @param joyStickKey
+     * creates a new Input event
+     * @param key key code
+     * @param name name name of the key
+     * @param type joyInput (default) | qtInput
+     * @param modifier keyboard modifiers
      */
-    InputEvent(int joyStickKey, QString name);
-
-    /**
-     * enum for input type
-     */
-    enum InputType{qtInput, joyInput};
+    InputEvent(int key = 0, QString name = "", InputType type = joyInput, Qt::KeyboardModifiers modifier = Qt::NoModifier);
 
     /**
      * returns the key-code of this event

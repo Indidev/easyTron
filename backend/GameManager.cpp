@@ -17,6 +17,11 @@ void GameManager::clickedPlay()
     int keys[] = {Qt::Key_Up, Qt::Key_Right, Qt::Key_Down, Qt::Key_Left};
     new LocalBikeController(bike, keys);
 
+    InputEvent iE[] = {InputEvent(-JoystickListener::Y_AXIS_MASK), InputEvent(JoystickListener::X_AXIS_MASK),
+                       InputEvent(JoystickListener::Y_AXIS_MASK), InputEvent(-JoystickListener::X_AXIS_MASK)};
+
+    new LocalBikeController(bike, iE);
+
     int keys2[] = {Qt::Key_W, Qt::Key_D, Qt::Key_S, Qt::Key_A};
     bikes.append(bike);
     bike = new Bike(900, 700, tron::left, "CPU 1", "#00ffff");

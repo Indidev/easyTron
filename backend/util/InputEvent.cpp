@@ -8,12 +8,12 @@ InputEvent::InputEvent(QKeyEvent *event)
     mod = event->modifiers();
 }
 
-InputEvent::InputEvent(int joyStickKey, QString name)
+InputEvent::InputEvent(int key, QString name, InputType type, Qt::KeyboardModifiers modifier)
 {
-    inputType = joyInput;
-    keyCode = joyStickKey;
+    inputType = type;
+    keyCode = key;
     keyName = name;
-    mod = Qt::NoModifier;
+    mod = modifier;
 }
 
 bool InputEvent::operator ==(const InputEvent &other)

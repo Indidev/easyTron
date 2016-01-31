@@ -9,8 +9,8 @@ InputGrabber::InputGrabber()
 
 #ifndef NO_SFML
     joyListener = new JoystickListener;
-    connect(joyListener, SIGNAL(btnPress(InputEvent)), this, SLOT(padPress(InputEvent)));
-    connect(joyListener, SIGNAL(btnRelease(InputEvent)), this, SLOT(padRelease(InputEvent)));
+    connect(joyListener, SIGNAL(btnPress(InputEvent)), this, SLOT(press(InputEvent)));
+    connect(joyListener, SIGNAL(btnRelease(InputEvent)), this, SLOT(release(InputEvent)));
 #endif
 }
 
@@ -26,23 +26,15 @@ bool InputGrabber::eventFilter(QObject *object, QEvent *event)
 {
     (void) object;
     if (event->type() == QEvent::KeyPress) {
-        QKeyEvent *keyEvent = static_cast<QKeyEvent *>(event);
 
-        emit(inputPress(keyEvent));
-
-        for (InputInterface *child : childs)
-            child->onPress(keyEvent);
+        press(static_cast<QKeyEvent *>(event));
 
          return true;
     }
 
     if (event->type() == QEvent::KeyRelease) {
-        QKeyEvent *keyEvent = static_cast<QKeyEvent *>(event);
 
-        emit(inputRelease(keyEvent));
-
-        for (InputInterface *child : childs)
-            child->onRelease(keyEvent);
+        release(static_cast<QKeyEvent *>(event));
 
         return true;
     }
@@ -50,14 +42,20 @@ bool InputGrabber::eventFilter(QObject *object, QEvent *event)
     return false;
 }
 
-void InputGrabber::padPress(InputEvent event)
+void InputGrabber::press(InputEvent event)
 {
     emit inputPress(event);
+
+    for (InputInterface *child : childs)
+        child->onPress(event);
 }
 
-void InputGrabber::padRelease(InputEvent event)
+void InputGrabber::release(InputEvent event)
 {
     emit inputRelease(event);
+
+    for (InputInterface *child : childs)
+        child->onRelease(event);
 }
 
 InputGrabber *InputGrabber::instance()

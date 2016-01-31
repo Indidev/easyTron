@@ -63,8 +63,8 @@ protected:
     JoystickListener *joyListener;
 #endif
 protected slots:
-    void padPress(InputEvent event);
-    void padRelease(InputEvent event);
+    void press(InputEvent event);
+    void release(InputEvent event);
 };
 
 #endif // KEYBOARDGRABBER_H

@@ -7,6 +7,7 @@
 #include "backend/io/Output.h"
 #include "backend/util/InputInterface.h"
 #include "backend/util/InputGrabber.h"
+#include "backend/util/InputEvent.h"
 
 /**
  * @brief The Options class
@@ -45,8 +46,7 @@ public:
      */
     static bool fpsVisible();
 
-    void onPress(QKeyEvent *ev);
-    void onRelease(QKeyEvent *);
+    void onPress(InputEvent ev);
 
 protected:
     Options();

@@ -1,7 +1,7 @@
 #ifndef KEYBOARDINTERFACE_H
 #define KEYBOARDINTERFACE_H
 
-#include <QKeyEvent>
+#include "InputEvent.h"
 
 /**
  * @brief The KeyboardInterface class
@@ -13,13 +13,13 @@ public:
      * will be called on key-press
      * @param ev key-event
      */
-    virtual void onPress(QKeyEvent *event) {(void) event;}
+    virtual void onPress(InputEvent event) {(void) event;}
 
     /**
      * will be called on key-release
      * @param ev key-event
      */
-    virtual void onRelease(QKeyEvent *event) {(void) event;}
+    virtual void onRelease(InputEvent event) {(void) event;}
 
 protected:
     InputInterface() {}
