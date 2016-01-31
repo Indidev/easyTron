@@ -50,7 +50,7 @@ PlayArea::PlayArea(QList<Bike *> bikes, QSize mapSize, GameManager *manager, QLi
     Ticker::registerItem(this, true);
 
     //connect keyboard grabber
-    connect(InputGrabber::instance(), SIGNAL(keyPress(QKeyEvent*)), this, SLOT(keyInput(QKeyEvent*)));
+    connect(InputGrabber::instance(), SIGNAL(inputPress(InputEvent)), this, SLOT(keyInput(InputEvent)));
 }
 
 PlayArea::~PlayArea()
@@ -156,10 +156,13 @@ void PlayArea::render()
     showFPS();
 }
 
-void PlayArea::keyInput(QKeyEvent *event)
+void PlayArea::keyInput(InputEvent event)
 {
+    if (event.type() != InputEvent::qtInput)
+        return;
+
     if (keysEnabled) {
-        switch (event->key()) {
+        switch (event.key()) {
         case Qt::Key_Escape:
             manager->pause();
             break;

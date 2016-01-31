@@ -31,6 +31,11 @@ public:
     int key() {return keyCode;}
 
     /**
+     * @return keyboard modifiers
+     */
+    Qt::KeyboardModifiers modifiers() {return mod;}
+
+    /**
      * @return name of the key
      */
     QString toString() {return keyName;}
@@ -47,6 +52,7 @@ protected:
     InputType inputType;
     int keyCode;
     QString keyName;
+    Qt::KeyboardModifiers mod;
 
 };
 

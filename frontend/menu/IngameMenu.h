@@ -4,6 +4,7 @@
 #include <QWidget>
 
 #include "backend/GameManager.h"
+#include "backend/util/InputEvent.h"
 
 namespace Ui {
 class IngameMenu;
@@ -28,7 +29,7 @@ protected:
     Ui::IngameMenu *ui;
 
 protected slots:
-    void onKey(QKeyEvent *event);
+    void onKey(InputEvent event);
     void c_exit() {emit(exit());}
     void c_resume() {emit(resume());}
     void c_options() {emit(options());}

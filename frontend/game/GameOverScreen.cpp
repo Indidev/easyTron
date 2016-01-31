@@ -9,7 +9,7 @@ GameOverScreen::GameOverScreen(QString winner) :
 
     connect(ui->exit_btn, SIGNAL(clicked()), this, SLOT(c_exit()));
     connect(ui->rematch_btn, SIGNAL(clicked()), this, SLOT(c_rematch()));
-    connect(InputGrabber::instance(), SIGNAL(keyPress(QKeyEvent*)), this, SLOT(onKey(QKeyEvent*)));
+    connect(InputGrabber::instance(), SIGNAL(inputPress(InputEvent)), this, SLOT(onKey(InputEvent)));
 }
 
 GameOverScreen::~GameOverScreen()
@@ -27,10 +27,13 @@ void GameOverScreen::c_rematch()
     emit rematch();
 }
 
-void GameOverScreen::onKey(QKeyEvent *event)
+void GameOverScreen::onKey(InputEvent event)
 {
-    if (event->key() == Qt::Key_Escape)
+    if (event.type() != InputEvent::qtInput)
+        return;
+
+    if (event.key() == Qt::Key_Escape)
         c_exit();
-    else if (event->key() == Qt::Key_Return)
+    else if (event.key() == Qt::Key_Return)
         c_rematch();
 }

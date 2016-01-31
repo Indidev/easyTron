@@ -8,10 +8,6 @@
 #include "JoystickListener.h"
 #include "InputEvent.h"
 
-//TODO remove this after testing
-#include <iostream>
-using namespace std;
-
 /**
  * @brief The InputGrabber class
  * Grabs keyboard signals.
@@ -44,16 +40,16 @@ public:
 
 signals:
     /**
-     * key press event
-     * @param event key-event
+     * input press event
+     * @param event input-event
      */
-    void keyPress(QKeyEvent *event);
+    void inputPress(InputEvent event);
 
     /**
-     * key release event
-     * @param event key-event
+     * input release event
+     * @param event input-event
      */
-    void keyRelease(QKeyEvent *event);
+    void inputRelease(InputEvent event);
 
 protected:
     InputGrabber();

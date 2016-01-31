@@ -35,16 +35,20 @@ void MainFrame::init() {
     upperLayer->layout()->setMargin(0);
     upperLayer->layout()->setSpacing(0);
 
-    connect(InputGrabber::instance(), SIGNAL(keyPress(QKeyEvent*)), this, SLOT(onKey(QKeyEvent*)));
+    connect(InputGrabber::instance(), SIGNAL(inputPress(InputEvent)), this, SLOT(onKey(InputEvent)));
 
     upperLayer->setAttribute(Qt::WA_TransparentForMouseEvents);
 }
 
-void MainFrame::onKey(QKeyEvent *event)
+void MainFrame::onKey(InputEvent event)
 {
-    if (event->modifiers() & Qt::ControlModifier && event->key() == Qt::Key_Q) {
+    //ignore gampad input
+    if (event.type() != InputEvent::qtInput)
+        return;
+
+    if (event.modifiers() & Qt::ControlModifier && event.key() == Qt::Key_Q) {
         exit(0);
-    } else if ((event->modifiers() & Qt::AltModifier) && event->key() == Qt::Key_Return) {
+    } else if ((event.modifiers() & Qt::AltModifier) && event.key() == Qt::Key_Return) {
         //toggle fullscreen
         if (isFullScreen())
             showNormal();

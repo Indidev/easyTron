@@ -81,7 +81,7 @@ protected:
 
 protected slots:
     void render();
-    void keyInput(QKeyEvent *event);
+    void keyInput(InputEvent event);
 };
 
 #endif // PLAYAREA_H

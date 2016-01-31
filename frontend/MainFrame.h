@@ -9,6 +9,7 @@
 #include "LayeredWidget.h"
 #include "backend/game/Bike.h"
 #include "backend/util/InputGrabber.h"
+#include "backend/util/InputEvent.h"
 
 namespace Ui {
 class MainFrame;
@@ -61,7 +62,7 @@ protected:
     void init();
 
 protected slots:
-    void onKey(QKeyEvent *event);
+    void onKey(InputEvent event);
 };
 
 #endif // MAINFRAME_H

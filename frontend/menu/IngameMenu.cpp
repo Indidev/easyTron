@@ -9,7 +9,7 @@ IngameMenu::IngameMenu() :
     connect(ui->exitButton, SIGNAL(clicked()), this, SLOT(c_exit()));
     connect(ui->resumeButton, SIGNAL(clicked()), this, SLOT(c_resume()));
     connect(ui->OptionButton, SIGNAL(clicked()), this, SLOT(c_options()));
-    connect(InputGrabber::instance(), SIGNAL(keyPress(QKeyEvent*)), this, SLOT(onKey(QKeyEvent*)));
+    connect(InputGrabber::instance(), SIGNAL(inputPress(InputEvent)), this, SLOT(onKey(InputEvent)));
 }
 
 IngameMenu::~IngameMenu()
@@ -17,8 +17,11 @@ IngameMenu::~IngameMenu()
     delete ui;
 }
 
-void IngameMenu::onKey(QKeyEvent *event)
+void IngameMenu::onKey(InputEvent event)
 {
-    if (event->key() == Qt::Key_Escape)
+    if (event.type() != InputEvent::qtInput)
+        return;
+
+    if (event.key() == Qt::Key_Escape)
         emit(resume());
 }

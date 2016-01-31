@@ -42,7 +42,7 @@ protected slots:
     /**
      * KeyboardGrabber interface
      */
-    void onKey(QKeyEvent *event);
+    void onKey(InputEvent event);
 
 signals:
     /**

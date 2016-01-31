@@ -28,7 +28,7 @@ bool InputGrabber::eventFilter(QObject *object, QEvent *event)
     if (event->type() == QEvent::KeyPress) {
         QKeyEvent *keyEvent = static_cast<QKeyEvent *>(event);
 
-        emit(keyPress(keyEvent));
+        emit(inputPress(keyEvent));
 
         for (InputInterface *child : childs)
             child->onPress(keyEvent);
@@ -39,7 +39,7 @@ bool InputGrabber::eventFilter(QObject *object, QEvent *event)
     if (event->type() == QEvent::KeyRelease) {
         QKeyEvent *keyEvent = static_cast<QKeyEvent *>(event);
 
-        emit(keyRelease(keyEvent));
+        emit(inputRelease(keyEvent));
 
         for (InputInterface *child : childs)
             child->onRelease(keyEvent);
@@ -52,12 +52,12 @@ bool InputGrabber::eventFilter(QObject *object, QEvent *event)
 
 void InputGrabber::padPress(InputEvent event)
 {
-    cout << "Press: " << event.toString().toStdString() << endl;
+    emit inputPress(event);
 }
 
 void InputGrabber::padRelease(InputEvent event)
 {
-    cout << "Release: " << event.toString().toStdString() << endl;
+    emit inputRelease(event);
 }
 
 InputGrabber *InputGrabber::instance()
