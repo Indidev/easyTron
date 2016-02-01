@@ -34,7 +34,9 @@ SOURCES += easyTron.cpp\
     backend/util/InputGrabber.cpp \
     backend/util/Options.cpp \
     backend/util/JoystickListener.cpp \
-    backend/util/InputEvent.cpp
+    backend/util/InputEvent.cpp \
+    backend/game/Lobby.cpp \
+    frontend/game/LobbyWidget.cpp
 
 HEADERS  += frontend/MainFrame.h \
     frontend/LayeredWidget.h \
@@ -57,7 +59,9 @@ HEADERS  += frontend/MainFrame.h \
     backend/util/InputGrabber.h \
     backend/util/InputInterface.h \
     backend/util/JoystickListener.h \
-    backend/util/InputEvent.h
+    backend/util/InputEvent.h \
+    backend/game/Lobby.h \
+    frontend/game/LobbyWidget.h
 
 FORMS    += frontend/MainFrame.ui \
     frontend/menu/MainMenu.ui \

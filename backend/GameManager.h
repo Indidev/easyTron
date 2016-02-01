@@ -15,6 +15,7 @@
 #include "frontend/game/CountdownWidget.h"
 #include "frontend/game/GameOverScreen.h"
 #include "backend/game/controller/LocalBikeController.h"
+#include "backend/game/Lobby.h"
 
 // todo remove, cause not necessary for the game
 #include "backend/util/InputEvent.h"
