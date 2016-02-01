@@ -10,7 +10,7 @@ GameManager::GameManager()
 void GameManager::clickedPlay()
 {
     QSize mapSize(1000, 1000);
-    CountdownWidget *t = new CountdownWidget();
+    CountdownWidget *t = new CountdownWidget;
     MainFrame::showOverlay(t, true);
 
     Bike *bike = new Bike(300, 300, tron::right, "Player 1", "#ffff00");

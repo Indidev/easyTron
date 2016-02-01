@@ -17,8 +17,9 @@ public:
      * constructor
      * @param countFrom number to count from (0 to show just the text)
      * @param text text to display if finished
+     * @param duration duration each number and the text will be shown (in ms)
      */
-    explicit CountdownWidget(int countFrom = 3, QString text = "GO"); //TODO add duration for animation
+    explicit CountdownWidget(int countFrom = 3, QString text = "GO", int duration = 500);
     ~CountdownWidget();
 
     /**
@@ -34,6 +35,7 @@ protected:
     QLabel *curLabel;
     int counter;
     QString endText;
+    int duration;
 
     void show(QString text);
 signals:

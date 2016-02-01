@@ -1,11 +1,11 @@
 #include "CountdownWidget.h"
 
-static const int FACTOR = 8;
-
-CountdownWidget::CountdownWidget(int countFrom, QString text)
+CountdownWidget::CountdownWidget(int countFrom, QString text, int duration)
 {
     this->counter = countFrom;
     this->endText = text;
+    this->duration = duration;
+
     Ticker::registerItem(this);
 }
 
@@ -47,15 +47,15 @@ void CountdownWidget::tick()
 }
 
 void CountdownWidget::show(QString text) {
-    static int i = 0;
+    static int t = 0;
     curLabel->setText(text);
     curLabel->setVisible(true);
-    curLabel->setStyleSheet("color:rgba(255, 255, 255, " + QString::number(i) + "); font-size: 100pt; font-weight: bold;");
+    curLabel->setStyleSheet("color:rgba(255, 255, 255, " + QString::number(255 * t / duration) + "); font-size: 100pt; font-weight: bold;");
 
     curLabel->setGeometry(0, 0, this->width(), this->height());
-    i += FACTOR;
-    if (i >= 255) {
+    t += Ticker::timePassed();
+    if (t >= duration) {
         counter--;
-        i = 0;
+        t = 0;
     }
 }
