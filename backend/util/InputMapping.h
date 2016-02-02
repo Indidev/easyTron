@@ -7,6 +7,11 @@
 #include "InputEvent.h"
 #include "backend/game/Bike.h"
 
+//todo maybe restructure this class
+
+//todo remove this after testing
+#include "JoystickListener.h"
+
 class InputMapping
 {
 public:

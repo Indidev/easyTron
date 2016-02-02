@@ -15,16 +15,31 @@
   </property>
   <layout class="QGridLayout" name="gridLayout">
    <property name="leftMargin">
-    <number>0</number>
+    <number>10</number>
    </property>
    <property name="rightMargin">
-    <number>0</number>
+    <number>10</number>
    </property>
    <property name="bottomMargin">
-    <number>0</number>
+    <number>10</number>
    </property>
    <item row="1" column="0">
     <widget class="QTableWidget" name="contentTable">
+     <property name="styleSheet">
+      <string notr="true">QHeaderView::section {
+background-color: transparent;
+color: white;
+}</string>
+     </property>
+     <property name="frameShape">
+      <enum>QFrame::NoFrame</enum>
+     </property>
+     <property name="lineWidth">
+      <number>0</number>
+     </property>
+     <property name="alternatingRowColors">
+      <bool>false</bool>
+     </property>
      <attribute name="horizontalHeaderCascadingSectionResizes">
       <bool>false</bool>
      </attribute>
@@ -43,7 +58,7 @@
      </column>
      <column>
       <property name="text">
-       <string>Controlls</string>
+       <string>Controls</string>
       </property>
      </column>
      <column>
@@ -83,6 +98,15 @@
      </property>
      <item>
       <widget class="QPushButton" name="exitBtn">
+       <property name="styleSheet">
+        <string notr="true">background-color: rgba(255,255,255,50);
+color: white;
+border: none;
+padding-left: 30px;
+padding-right: 30px;
+padding-top: 3px;
+padding-bottom: 3px;</string>
+       </property>
        <property name="text">
         <string>Exit</string>
        </property>
@@ -103,6 +127,15 @@
      </item>
      <item>
       <widget class="QPushButton" name="goBtn">
+       <property name="styleSheet">
+        <string notr="true">background-color: rgba(255,255,255,50);
+color: white;
+border: none;
+padding-left: 30px;
+padding-right: 30px;
+padding-top: 3px;
+padding-bottom: 3px;</string>
+       </property>
        <property name="text">
         <string>GO</string>
        </property>

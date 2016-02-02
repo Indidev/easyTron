@@ -9,10 +9,12 @@ GameManager::GameManager()
 
 void GameManager::clickedPlay()
 {
-    Lobby *lobby = new Lobby;
+    lobby = new Lobby;
 
     connect(lobby, SIGNAL(c_exit()), this, SLOT(showMainMenu()));
+    connect(lobby, SIGNAL(c_exit()), this, SLOT(removeLobby()));
     connect(lobby, SIGNAL(c_go()), this, SLOT(startGame()));
+    connect(lobby, SIGNAL(c_go()), this, SLOT(removeLobby()));
 }
 
 void GameManager::play()
@@ -123,4 +125,10 @@ void GameManager::showMainMenu() {
     connect(menu, SIGNAL(play()), this, SLOT(clickedPlay()));
     connect(menu, SIGNAL(options()), this, SLOT(clickedOptions()));
     connect(menu, SIGNAL(exit()), this, SLOT(clickedExit()));
+}
+
+void GameManager::removeLobby()
+{
+    delete lobby;
+    lobby = NULL;
 }

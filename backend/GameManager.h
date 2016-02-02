@@ -22,11 +22,12 @@
 #include "backend/util/JoystickListener.h"
 
 class PlayArea;
+class Lobby;
 
 /**
  * @brief The GameManager class
  * this class manages the game itself
- * //TODO delegate tasks
+ * //TODO delegate tasks and restructure the whole class
  */
 class GameManager : public QObject
 {
@@ -46,11 +47,13 @@ public slots:
     void endGame(Bike* winner);
     void cleanGame();
     void showMainMenu();
+    void removeLobby();
 
 protected:
 
     BikeList bikes;
     PlayArea *playArea;
+    Lobby *lobby;
 
 protected slots:
     void play();

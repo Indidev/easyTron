@@ -7,6 +7,7 @@
 #include "frontend/game/LobbyWidget.h"
 #include "backend/util/InputEvent.h"
 #include "backend/util/InputGrabber.h"
+#include "backend/util/InputMapping.h"
 
 class Lobby : public QObject
 {
@@ -19,11 +20,10 @@ signals:
     void c_go();
 
 public slots:
-    void onInput(InputEvent);
+    void onInput(InputEvent event);
 
 protected:
     LobbyWidget *lobbyFrontend;
-
 };
 
 #endif // LOBBY_H
