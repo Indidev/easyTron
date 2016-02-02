@@ -66,7 +66,8 @@ HEADERS  += frontend/MainFrame.h \
 FORMS    += frontend/MainFrame.ui \
     frontend/menu/MainMenu.ui \
     frontend/menu/IngameMenu.ui \
-    frontend/game/GameOverScreen.ui
+    frontend/game/GameOverScreen.ui \
+    frontend/game/LobbyWidget.ui
 
 # Define copy command for linux and windows
 QMAKE_COPY = cp -rf

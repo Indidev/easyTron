@@ -40,6 +40,7 @@ public slots:
     void clickedPlay();
     void clickedExit();
     void clickedOptions();
+    void startGame();
     void pause();
     void resume();
     void endGame(Bike* winner);

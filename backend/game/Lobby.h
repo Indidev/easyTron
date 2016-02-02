@@ -15,6 +15,8 @@ public:
     explicit Lobby();
 
 signals:
+    void c_exit();
+    void c_go();
 
 public slots:
     void onInput(InputEvent);

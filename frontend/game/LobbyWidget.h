@@ -3,16 +3,23 @@
 
 #include <QWidget>
 
+namespace Ui {
+class LobbyWidget;
+}
+
 class LobbyWidget : public QWidget
 {
     Q_OBJECT
+
 public:
     explicit LobbyWidget();
-
+    ~LobbyWidget();
 signals:
+    void c_exit();
+    void c_go();
 
-public slots:
-
+private:
+    Ui::LobbyWidget *ui;
 };
 
 #endif // LOBBYWIDGET_H
