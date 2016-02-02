@@ -49,8 +49,9 @@ public:
      */
     InputType type() {return inputType;}
 
-    bool operator ==(const InputEvent &other);
-    bool operator !=(const InputEvent &other) {return !(*this==other);}
+    bool operator == (const InputEvent &rhs) const;
+    bool operator != (const InputEvent &rhs) const {return !(*this==rhs);}
+    bool operator < (const InputEvent &rhs) const;
 
 protected:
     InputType inputType;

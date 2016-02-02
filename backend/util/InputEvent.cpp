@@ -16,8 +16,16 @@ InputEvent::InputEvent(int key, QString name, InputType type, Qt::KeyboardModifi
     mod = modifier;
 }
 
-bool InputEvent::operator ==(const InputEvent &other)
+bool InputEvent::operator == (const InputEvent &rhs) const
 {
-    return inputType == other.inputType &&
-            keyCode == other.keyCode;
+    return inputType == rhs.inputType &&
+            keyCode == rhs.keyCode;
+}
+
+bool InputEvent::operator < (const InputEvent &rhs) const
+{
+    if (inputType == rhs.inputType)
+        return keyCode < rhs.keyCode;
+    else
+        return inputType < rhs.inputType;
 }
