@@ -84,6 +84,12 @@ void LobbyWidget::updateTable()
         ui->contentTable->setItem(i, 1, new QTableWidgetItem(colorItem, ""));
         ui->contentTable->setItem(i, 2, new QTableWidgetItem(rows[i]->controls));
         ui->contentTable->setItem(i, 3, new QTableWidgetItem(rows[i]->status));
+
+        for (int r = 0; r < 4; r++) {
+            QTableWidgetItem *item = ui->contentTable->item(i, r);
+            item->setTextColor(Qt::white);
+            item->setBackgroundColor(QColor(255, 255, 255, 50));
+        }
     }
 
     QTableWidgetItem *lastRow = new QTableWidgetItem("Up: Join, Down: Leave, Left/Right: Change color");

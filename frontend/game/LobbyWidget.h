@@ -6,6 +6,7 @@
 #include <QList>
 
 #include <QPainter>
+#include <QRgb>
 
 namespace Ui {
 class LobbyWidget;
