@@ -33,3 +33,9 @@ void LocalBikeController::onPress(InputEvent event)
         }
     }
 }
+
+QString LocalBikeController::toString()
+{
+    return "Up: " + keys[0].toString() + " Down: " + keys[2].toString() +
+            " Left: " + keys[3].toString() + " Right: " + keys[1].toString();
+}

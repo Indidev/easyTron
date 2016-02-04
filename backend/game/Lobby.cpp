@@ -11,19 +11,25 @@ Lobby::Lobby()
 
 void Lobby::onInput(InputEvent event)
 {
-    if (!InputMapping::isPlayerAction(event))
-        return;
+    if (InputMapping::isPlayerAction(event)) {
 
-    int playerNum = InputMapping::getPlayerAction(event).first;
+        int playerNum = InputMapping::getPlayerAction(event).first;
 
-    switch (InputMapping::getPlayerAction(event).second) {
-        case tron::up:
-            lobbyFrontend->addRow(playerNum);
+        switch (InputMapping::getPlayerAction(event).second) {
+            case tron::up:
+                lobbyFrontend->addRow(playerNum);
+                break;
+            case tron::down:
+                lobbyFrontend->removeRow(playerNum);
+                break;
+            default:
+                lobbyFrontend->changeColor(playerNum);
+        }
+    } else {
+        switch (event.key()) {
+        case Qt::Key_Escape : emit c_exit();
             break;
-        case tron::down:
-            lobbyFrontend->removeRow(playerNum);
-            break;
-        default:
-            lobbyFrontend->changeColor(playerNum);
+        case Qt::Key_Return : emit c_go();
+        }
     }
 }

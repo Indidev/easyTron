@@ -1,10 +1,16 @@
 #ifndef BIKECONTROLLER_H
 #define BIKECONTROLLER_H
 
+#include <QString>
+
 #include "backend/game/Bike.h"
 
 class BikeController
 {
+public:
+
+    virtual QString toString() = 0;
+
 protected:
     BikeController(Bike* bike);
 

@@ -20,7 +20,7 @@ class LobbyWidget : public QWidget
 public:
     explicit LobbyWidget();
     ~LobbyWidget();
-    void addRow(int num); //TODO redo this with a whole row instead of a number
+    void addRow(int num); //TODO redo this with a controller
     void removeRow(int num);
     void changeColor(int num);
 signals:

@@ -35,6 +35,8 @@ public:
      */
     void onPress(InputEvent event);
 
+    QString toString();
+
 protected:
     InputEvent keys[4];
 
