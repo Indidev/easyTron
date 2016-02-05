@@ -9,6 +9,7 @@
 #include "backend/util/InputGrabber.h"
 #include "backend/util/InputMapping.h"
 
+//todo comment
 class Lobby : public QObject
 {
     Q_OBJECT

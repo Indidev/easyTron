@@ -35,6 +35,9 @@ public:
      */
     void onPress(InputEvent event);
 
+    /**
+     * see BikeController
+     */
     QString toString();
 
 protected:

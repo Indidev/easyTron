@@ -5,17 +5,30 @@ BikeController::BikeController(Bike *bike)
     this->bike = bike;
 }
 
+void BikeController::setBike(Bike *bike)
+{
+    this->bike = bike;
+}
+
+void BikeController::removeBike()
+{
+    this->bike = NULL;
+}
+
 void BikeController::changeDirection(Direction direction)
 {
-    bike->changeDirection(direction);
+    if (bike)
+        bike->changeDirection(direction);
 }
 
 void BikeController::turnLeft()
 {
-    changeDirection((tron::Direction) ((bike->getCurDirection() + 3) % 4));
+    if (bike)
+        changeDirection((tron::Direction) ((bike->getCurDirection() + 3) % 4));
 }
 
 void BikeController::turnRight()
 {
-    changeDirection((tron::Direction)((bike->getCurDirection() + 1) % 4));
+    if (bike)
+        changeDirection((tron::Direction)((bike->getCurDirection() + 1) % 4));
 }
