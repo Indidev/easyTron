@@ -5,7 +5,8 @@
 #include <QPair>
 
 #include "InputEvent.h"
-#include "backend/game/Bike.h"
+#include "backend/game/controller/BikeController.h"
+#include "backend/game/controller/LocalBikeController.h"
 
 //todo maybe restructure this class
 
@@ -17,6 +18,7 @@ class InputMapping
 public:
     static bool isPlayerAction(const InputEvent &event);
     static QPair<int, tron::Direction> getPlayerAction(InputEvent &event);
+    static BikeController* getController(InputEvent &event);
 
 protected:
     InputMapping();
@@ -24,6 +26,7 @@ protected:
     static InputMapping *self;
 
     QMap<InputEvent, QPair<int, tron::Direction> > playerKeys;
+    QMap<InputEvent, BikeController*> controllerMap;
 
     static InputMapping *instance();
 };

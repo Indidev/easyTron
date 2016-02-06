@@ -7,6 +7,7 @@
 
 #include <QPainter>
 #include <QRgb>
+#include <backend/game/controller/BikeController.h>
 
 namespace Ui {
 class LobbyWidget;
@@ -20,9 +21,9 @@ class LobbyWidget : public QWidget
 public:
     explicit LobbyWidget();
     ~LobbyWidget();
-    void addRow(int num); //TODO redo this with a controller
-    void removeRow(int num);
-    void changeColor(int num);
+    void addRow(BikeController *controller); //TODO redo this with a controller
+    void removeRow(BikeController *controller);
+    void changeColor(BikeController *controller);
 signals:
     void c_exit();
     void c_go();
@@ -31,11 +32,9 @@ protected:
     Ui::LobbyWidget *ui;
 
     struct RowData {
-        int playerNum;      //TODO should redo this with bike controler instead
-        QString playerName; //is contained in the bike of the controler
-        QString color;      //let this be, can set the bikes color afterwards
-        QString controls;   //bike controler...
-        QString status;     //let this
+        BikeController *controller;
+        QString color;
+        QString status;
     };
 
     QList<RowData*> rows;
@@ -44,7 +43,7 @@ protected:
 
     void updateTable();
     void nextColor(RowData *data);
-    RowData *findData(int num);
+    RowData *findData(BikeController *controller);
 };
 
 #endif // LOBBYWIDGET_H

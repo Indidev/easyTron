@@ -36,19 +36,19 @@ LobbyWidget::~LobbyWidget()
     delete ui;
 }
 
-void LobbyWidget::addRow(int num)
+void LobbyWidget::addRow(BikeController *controller)
 {
-    if (findData(num))
+    if (findData(controller))
         return;
 
-    rows.append(new RowData{num, "Testplayer", "", "none", "no Status"});
+    rows.append(new RowData{controller, "", "no Status"});
     nextColor(rows.last());
     updateTable();
 }
 
-void LobbyWidget::removeRow(int num)
+void LobbyWidget::removeRow(BikeController *controller)
 {
-    RowData *dataPtr = findData(num);
+    RowData *dataPtr = findData(controller);
     if (dataPtr) {
         takenColors.removeAll(dataPtr->color);
         rows.removeAll(dataPtr);
@@ -56,9 +56,9 @@ void LobbyWidget::removeRow(int num)
     }
 }
 
-void LobbyWidget::changeColor(int num)
+void LobbyWidget::changeColor(BikeController *controller)
 {
-    RowData *dataPtr = findData(num);
+    RowData *dataPtr = findData(controller);
     if (dataPtr) {
         nextColor(dataPtr);
         updateTable();
@@ -80,9 +80,9 @@ void LobbyWidget::updateTable()
 
         QIcon colorItem;
         colorItem.addPixmap(colorPixmap);
-        ui->contentTable->setItem(i, 0, new QTableWidgetItem(rows[i]->playerName));
+        ui->contentTable->setItem(i, 0, new QTableWidgetItem(rows[i]->controller->getName()));
         ui->contentTable->setItem(i, 1, new QTableWidgetItem(colorItem, ""));
-        ui->contentTable->setItem(i, 2, new QTableWidgetItem(rows[i]->controls));
+        ui->contentTable->setItem(i, 2, new QTableWidgetItem(rows[i]->controller->toString()));
         ui->contentTable->setItem(i, 3, new QTableWidgetItem(rows[i]->status));
 
         for (int r = 0; r < 4; r++) {
@@ -116,10 +116,10 @@ void LobbyWidget::nextColor(RowData *data)
     }
 }
 
-LobbyWidget::RowData *LobbyWidget::findData(int num)
+LobbyWidget::RowData *LobbyWidget::findData(BikeController *controller)
 {
     for (RowData *row: rows) {
-        if (row->playerNum == num)
+        if (row->controller == controller)
             return row;
     }
     return NULL;

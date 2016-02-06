@@ -86,6 +86,12 @@ public:
     void enableInput(bool enabled = true) {inputEnabled = enabled;}
 
     /**
+     * set the bikes name
+     * @param name of the bike
+     */
+    void setName(string name) {this->name = name;}
+
+    /**
      * @return players name
      */
     string getName() {return name;}

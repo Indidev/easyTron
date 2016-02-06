@@ -1,7 +1,7 @@
 #include "LocalBikeController.h"
 
-LocalBikeController::LocalBikeController(Bike* bike, int keys[]) :
-    BikeController(bike)
+LocalBikeController::LocalBikeController(int keys[4], QString name, Bike* bike) :
+    BikeController(name, bike)
 {
     for (int i = 0; i < 4; i++) {
         this->keys[i] = InputEvent(keys[i], "", InputEvent::qtInput);
@@ -10,8 +10,8 @@ LocalBikeController::LocalBikeController(Bike* bike, int keys[]) :
     InputGrabber::registerItem(this);
 }
 
-LocalBikeController::LocalBikeController(Bike *bike, InputEvent keys[]) :
-    BikeController(bike)
+LocalBikeController::LocalBikeController(InputEvent keys[], QString name, Bike *bike) :
+    BikeController(name, bike)
 {
     for (int i = 0; i < 4; i++) {
         this->keys[i] = keys[i];

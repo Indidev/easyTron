@@ -2,6 +2,7 @@
 #define LOCALBIKECONTROLLER_H
 
 #include <QKeyEvent>
+#include <QString>
 
 #include "BikeController.h"
 #include "backend/util/InputInterface.h"
@@ -20,14 +21,14 @@ public:
      * @param bike bike which should be controlled
      * @param keys keys for control (up, right, down, left)
      */
-    LocalBikeController(Bike* bike, int keys[4]);
+    LocalBikeController(int keys[4], QString name = "", Bike* bike = NULL);
 
     /**
      * constructs a new local controller
      * @param bike bike which should be controlled
      * @param keys keys for control (up, right, down, left)
      */
-    LocalBikeController(Bike* bike, InputEvent keys[4]);
+    LocalBikeController(InputEvent keys[4], QString name = "", Bike* bike = NULL);
     ~LocalBikeController();
 
     /**

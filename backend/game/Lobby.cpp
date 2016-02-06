@@ -13,17 +13,15 @@ void Lobby::onInput(InputEvent event)
 {
     if (InputMapping::isPlayerAction(event)) {
 
-        int playerNum = InputMapping::getPlayerAction(event).first;
-
         switch (InputMapping::getPlayerAction(event).second) {
             case tron::up:
-                lobbyFrontend->addRow(playerNum);
+                lobbyFrontend->addRow(InputMapping::getController(event));
                 break;
             case tron::down:
-                lobbyFrontend->removeRow(playerNum);
+                lobbyFrontend->removeRow(InputMapping::getController(event));
                 break;
             default:
-                lobbyFrontend->changeColor(playerNum);
+                lobbyFrontend->changeColor(InputMapping::getController(event));
         }
     } else {
         switch (event.key()) {

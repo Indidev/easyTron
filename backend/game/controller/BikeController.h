@@ -30,14 +30,20 @@ public:
      */
     void removeBike();
 
+    /**
+     * get players name
+     */
+    QString getName();
+
 protected:
-    BikeController(Bike* bike = NULL);
+    BikeController(QString playerName = "", Bike* bike = NULL);
 
     void changeDirection(tron::Direction direction);
     void turnLeft();
     void turnRight();
 
     Bike *bike;
+    QString name;
 };
 
 #endif // BIKECONTROLLER_H

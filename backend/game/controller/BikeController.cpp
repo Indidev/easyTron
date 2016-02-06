@@ -1,18 +1,26 @@
 #include "BikeController.h"
 
-BikeController::BikeController(Bike *bike)
+BikeController::BikeController(QString playerName, Bike *bike)
 {
-    this->bike = bike;
+    this->name = playerName;
+    setBike(bike);
 }
 
 void BikeController::setBike(Bike *bike)
 {
     this->bike = bike;
+    if (bike)
+        bike->setName(name.toStdString());
 }
 
 void BikeController::removeBike()
 {
     this->bike = NULL;
+}
+
+QString BikeController::getName()
+{
+    return name;
 }
 
 void BikeController::changeDirection(Direction direction)
