@@ -10,18 +10,23 @@
 #include "backend/game/controller/BikeController.h"
 #include "backend/util/InputEvent.h"
 
-//todo comment
+/**
+ * lobby before the game
+ */
 class Lobby : public QObject
 {
     Q_OBJECT
 public:
+    /**
+     * creates a new lobby
+     */
     explicit Lobby();
 
     /**
      * get the Data of the lobby
      * @return data
      */
-    QList<RowData*> *getData();
+    QList<RowData*> getData();
 
 signals:
     /**

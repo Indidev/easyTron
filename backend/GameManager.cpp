@@ -1,7 +1,7 @@
 #include "GameManager.h"
 
 static const float FPS = 60;
-static const int startPos[] = {6, 4, 8, 2, 4, 6, 8, 2};
+static const float START_POS[] = {.6, .4, .8, .2, .4, .6, .8, .2};
 
 GameManager::GameManager()
 {
@@ -9,13 +9,21 @@ GameManager::GameManager()
     showMainMenu();
 }
 
+GameManager::~GameManager()
+{
+    for (RowData *date : data)
+        delete date;
+}
+
 void GameManager::clickedPlay()
 {
     lobby = new Lobby;
 
+
     connect(lobby, SIGNAL(c_exit()), this, SLOT(showMainMenu()));
-    connect(lobby, SIGNAL(c_exit()), this, SLOT(removeLobby()));
     connect(lobby, SIGNAL(c_go()), this, SLOT(startGame()));
+
+    connect(lobby, SIGNAL(c_exit()), this, SLOT(removeLobby()));
     connect(lobby, SIGNAL(c_go()), this, SLOT(removeLobby()));
 }
 
@@ -39,18 +47,26 @@ void GameManager::clickedOptions()
 
 void GameManager::startGame()
 {
+    if (lobby) {
+        for (RowData *date : data)
+            delete date;
+        data.clear();
+
+        data = lobby->getData();
+    }
+
     QSize mapSize(1000, 1000);
     CountdownWidget *t = new CountdownWidget;
     MainFrame::showOverlay(t, true);
 
-    Bike *bike = new Bike(300, 300, tron::right);
-    bike->setController(InputMapping::getController(0));
-
-    bikes.append(bike);
-
-    bike = new Bike(700, 700, tron::left);
-    bike->setController(InputMapping::getController(2));
-    bikes.append(bike);
+    //todo add support for more than 8 players
+    for (int i = 0; i < data.length() && i < 8; i++) {
+        float x = START_POS[i] * mapSize.width();
+        float y = START_POS[(i + 6) % 8] * mapSize.height();
+        Direction dir = Direction((((i % 4) / 2) * 3 + (i % 2) * 2) % 4);
+        Bike *bike = new Bike(x, y, dir, data[i]->color.toStdString(), data[i]->controller);
+        bikes.append(bike);
+    }
 
     bikes.setBorder(QRect(QPoint(0, 0), mapSize));
 
@@ -130,5 +146,6 @@ void GameManager::removeLobby()
 {
     if (lobby)
         delete lobby;
+
     lobby = NULL;
 }

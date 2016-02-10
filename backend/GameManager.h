@@ -33,6 +33,7 @@ class GameManager : public QObject
     Q_OBJECT
 public:
     explicit GameManager();
+    ~GameManager();
 
 signals:
 
@@ -53,6 +54,7 @@ protected:
     BikeList bikes;
     PlayArea *playArea;
     Lobby *lobby;
+    QList<RowData*> data;
 
 protected slots:
     void play();
