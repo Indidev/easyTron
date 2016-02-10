@@ -27,6 +27,8 @@ void BikeController::changeDirection(Direction direction)
 {
     if (bike)
         bike->changeDirection(direction);
+
+    InputGrabber::pushedDirection(direction, this);
 }
 
 void BikeController::turnLeft()

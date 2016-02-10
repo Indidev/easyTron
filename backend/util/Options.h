@@ -8,6 +8,7 @@
 #include "backend/util/InputInterface.h"
 #include "backend/util/InputGrabber.h"
 #include "backend/util/InputEvent.h"
+#include "backend/util/InputMapping.h"
 
 /**
  * @brief The Options class

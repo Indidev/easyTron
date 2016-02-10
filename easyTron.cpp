@@ -14,9 +14,9 @@ void test();
 
 int main(int argc, char *argv[])
 {
+    QApplication a(argc, argv);
     //TODO remove before release
     test();
-    QApplication a(argc, argv);
     MainFrame w;
     w.show();
 

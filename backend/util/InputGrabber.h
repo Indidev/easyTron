@@ -7,6 +7,9 @@
 #include "InputInterface.h"
 #include "JoystickListener.h"
 #include "InputEvent.h"
+#include "backend/game/controller/BikeController.h"
+
+class BikeController;
 
 /**
  * @brief The InputGrabber class
@@ -38,6 +41,13 @@ public:
      */
     static void unregisterItem(InputInterface *child);
 
+    /**
+     * input from a bike controller
+     * @param direction direction which is pressed
+     * @param ctrl pointer to the controller
+     */
+    static void pushedDirection(tron::Direction direction, BikeController *ctrl);
+
 signals:
     /**
      * input press event
@@ -50,6 +60,13 @@ signals:
      * @param event input-event
      */
     void inputRelease(InputEvent event);
+
+    /**
+     * emit the bike controllers signal
+     * @param direction direction which is pressed
+     * @param ctrl pointer to the controller
+     */
+    void ctrlDirection(tron::Direction direction, BikeController *ctrl);
 
 protected:
     InputGrabber();
@@ -65,6 +82,7 @@ protected:
 protected slots:
     void press(InputEvent event);
     void release(InputEvent event);
+    void emitCtrlDir(tron::Direction dir, BikeController *ctrl) {emit ctrlDirection(dir, ctrl);}
 };
 
 #endif // KEYBOARDGRABBER_H

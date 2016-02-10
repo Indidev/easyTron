@@ -16,17 +16,15 @@
 class InputMapping
 {
 public:
-    static bool isPlayerAction(const InputEvent &event);
-    static QPair<int, tron::Direction> getPlayerAction(InputEvent &event);
-    static BikeController* getController(InputEvent &event);
+    static BikeController* getController(int num);
+    static void init() {instance();}
 
 protected:
     InputMapping();
 
     static InputMapping *self;
 
-    QMap<InputEvent, QPair<int, tron::Direction> > playerKeys;
-    QMap<InputEvent, BikeController*> controllerMap;
+    QList<BikeController *> controllers;
 
     static InputMapping *instance();
 };

@@ -5,9 +5,9 @@
 
 #include "frontend/MainFrame.h"
 #include "frontend/game/LobbyWidget.h"
-#include "backend/util/InputEvent.h"
 #include "backend/util/InputGrabber.h"
-#include "backend/util/InputMapping.h"
+#include "backend/game/controller/BikeController.h"
+#include "backend/util/InputEvent.h"
 
 //todo comment
 class Lobby : public QObject
@@ -21,6 +21,7 @@ signals:
     void c_go();
 
 public slots:
+    void onCtrlInput(tron::Direction direction, BikeController *controller);
     void onInput(InputEvent event);
 
 protected:

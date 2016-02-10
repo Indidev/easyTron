@@ -5,7 +5,6 @@ InputGrabber *InputGrabber::self = NULL;
 InputGrabber::InputGrabber()
 {
     QApplication::instance()->installEventFilter(this);
-    self = NULL;
 
 #ifndef NO_SFML
     joyListener = new JoystickListener;
@@ -75,4 +74,9 @@ void InputGrabber::registerItem(InputInterface *child)
 void InputGrabber::unregisterItem(InputInterface *child)
 {
     instance()->childs.removeAll(child);
+}
+
+void InputGrabber::pushedDirection(Direction direction, BikeController *ctrl)
+{
+    instance()->emitCtrlDir(direction, ctrl);
 }

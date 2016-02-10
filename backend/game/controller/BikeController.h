@@ -4,6 +4,7 @@
 #include <QString>
 
 #include "backend/game/Bike.h"
+#include "backend/util/InputGrabber.h"
 
 /**
  * abstract class for bike controllers, subclasses are implementing local,
@@ -11,7 +12,7 @@
  */
 class BikeController
 {
-public:
+public: //todo uncouple from bike
 
     /**
      * get the controlls as a string

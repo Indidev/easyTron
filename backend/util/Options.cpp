@@ -5,6 +5,7 @@ Options* Options::self = NULL;
 Options::Options()
 {
     loadOptions();
+    InputMapping::init();
 }
 
 Options::~Options()
