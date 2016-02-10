@@ -9,26 +9,6 @@ LobbyWidget::LobbyWidget() :
     connect(ui->goBtn, SIGNAL(clicked()), this, SIGNAL(c_go()));
 
     ui->contentTable->verticalHeader()->setVisible(false);
-
-    //todo load colors codes... this is pretty dirty!
-    colors.append("#ffff00");
-    colors.append("#00ffff");
-    colors.append("#ff0000");
-    colors.append("#00ff00");
-    colors.append("#0000ff");
-    colors.append("#8e0007");
-    colors.append("#006700");
-    colors.append("#510052");
-    colors.append("#e00a6f");
-    colors.append("#ffb129");
-    colors.append("#bb29ff");
-    colors.append("#02b150");
-    colors.append("#8e4307");
-    colors.append("#000000");
-    colors.append("#919191");
-    colors.append("#ffffff");
-
-    updateTable();
 }
 
 LobbyWidget::~LobbyWidget()
@@ -36,36 +16,7 @@ LobbyWidget::~LobbyWidget()
     delete ui;
 }
 
-void LobbyWidget::addRow(BikeController *controller)
-{
-    if (findData(controller))
-        return;
-
-    rows.append(new RowData{controller, "", "no Status"});
-    nextColor(rows.last());
-    updateTable();
-}
-
-void LobbyWidget::removeRow(BikeController *controller)
-{
-    RowData *dataPtr = findData(controller);
-    if (dataPtr) {
-        takenColors.removeAll(dataPtr->color);
-        rows.removeAll(dataPtr);
-        updateTable();
-    }
-}
-
-void LobbyWidget::changeColor(BikeController *controller)
-{
-    RowData *dataPtr = findData(controller);
-    if (dataPtr) {
-        nextColor(dataPtr);
-        updateTable();
-    }
-}
-
-void LobbyWidget::updateTable()
+void LobbyWidget::updateTable(QList<RowData *> &rows)
 {
     ui->contentTable->setRowCount(rows.size() + 1);
     ui->contentTable->clearContents();
@@ -95,34 +46,6 @@ void LobbyWidget::updateTable()
     QTableWidgetItem *lastRow = new QTableWidgetItem("Up: Join, Down: Leave, Left/Right: Change color");
     lastRow->setTextColor(Qt::gray);
     ui->contentTable->setItem(rows.size(), 3, lastRow);
-}
-
-void LobbyWidget::nextColor(RowData *data)
-{
-    int index = colors.indexOf(QRegExp(data->color));
-    takenColors.removeAll(data->color);
-    data->color = "";
-    int cancelCounter = 0;
-
-    while (data->color.isEmpty() && cancelCounter < 16) {
-        index++;
-        index %= colors.size();
-
-        if (!takenColors.contains(colors[index])) {
-            data->color = colors[index];
-            takenColors.append(colors[index]);
-        }
-        cancelCounter++;
-    }
-}
-
-LobbyWidget::RowData *LobbyWidget::findData(BikeController *controller)
-{
-    for (RowData *row: rows) {
-        if (row->controller == controller)
-            return row;
-    }
-    return NULL;
 }
 
 

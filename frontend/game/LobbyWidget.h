@@ -22,9 +22,8 @@ class LobbyWidget : public QWidget
 public:
     explicit LobbyWidget();
     ~LobbyWidget();
-    void addRow(BikeController *controller); //TODO redo this with a controller
-    void removeRow(BikeController *controller);
-    void changeColor(BikeController *controller);
+
+    void updateTable(QList<RowData *> &rows);
 signals:
     void c_exit();
     void c_go();
@@ -32,19 +31,6 @@ signals:
 protected:
     Ui::LobbyWidget *ui;
 
-    struct RowData {
-        BikeController *controller;
-        QString color;
-        QString status;
-    };
-
-    QList<RowData*> rows;
-    QStringList takenColors;
-    QStringList colors;
-
-    void updateTable();
-    void nextColor(RowData *data);
-    RowData *findData(BikeController *controller);
 };
 
 #endif // LOBBYWIDGET_H

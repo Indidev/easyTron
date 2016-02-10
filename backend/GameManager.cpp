@@ -1,9 +1,11 @@
 #include "GameManager.h"
 
 static const float FPS = 60;
+static const int startPos[] = {6, 4, 8, 2, 4, 6, 8, 2};
 
 GameManager::GameManager()
 {
+    lobby = NULL;
     showMainMenu();
 }
 
@@ -113,6 +115,9 @@ void GameManager::cleanGame()
 }
 
 void GameManager::showMainMenu() {
+
+    removeLobby();
+
     MainMenu *menu = new MainMenu();
     MainFrame::showWidget(menu);
 
@@ -123,6 +128,7 @@ void GameManager::showMainMenu() {
 
 void GameManager::removeLobby()
 {
-    delete lobby;
+    if (lobby)
+        delete lobby;
     lobby = NULL;
 }

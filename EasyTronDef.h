@@ -1,6 +1,8 @@
 #ifndef EASYTRON_H
 #define EASYTRON_H
 
+#include <QString>
+
 //Backend
 class BikeController;
 class LocalBikeController;
@@ -35,5 +37,12 @@ class MainFrame;
 namespace tron{
     enum Direction {up, right, down, left};
 }
+
+//Structs
+struct RowData {
+    BikeController *controller;
+    QString color;
+    QString status;
+};
 
 #endif // EASYTRON_H

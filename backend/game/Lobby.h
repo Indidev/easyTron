@@ -27,6 +27,17 @@ public slots:
 
 protected:
     LobbyWidget *lobbyFrontend;
+
+    QList<RowData*> rows;
+    QStringList takenColors;
+    QStringList colors;
+
+    void nextColor(RowData *data);
+    RowData *findData(BikeController *controller);
+
+    void addRow(BikeController *controller); //TODO redo this with a controller
+    void removeRow(BikeController *controller);
+    void changeColor(BikeController *controller);
 };
 
 #endif // LOBBY_H
