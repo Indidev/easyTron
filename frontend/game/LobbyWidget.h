@@ -14,18 +14,33 @@ namespace Ui {
 class LobbyWidget;
 }
 
-//TODO comment whole class
+/**
+ * a widget building the frontend to the lobby itself which contains all data.
+ */
 class LobbyWidget : public QWidget
 {
     Q_OBJECT
 
 public:
+    /**
+     * creates a new lobby widget
+     */
     explicit LobbyWidget();
     ~LobbyWidget();
 
+    /**
+     * updates the widgets table
+     * @param rows data to display
+     */
     void updateTable(QList<RowData *> &rows);
 signals:
+    /**
+     * indicates that exit was pressed
+     */
     void c_exit();
+    /**
+     * indicates that the go button was pressed
+     */
     void c_go();
 
 protected:

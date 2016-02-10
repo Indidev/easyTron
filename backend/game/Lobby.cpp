@@ -53,6 +53,11 @@ void Lobby::onInput(InputEvent event)
     }
 }
 
+QList<RowData *> *Lobby::getData()
+{
+    return &rows;
+}
+
 void Lobby::addRow(BikeController *controller)
 {
     if (findData(controller))

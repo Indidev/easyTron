@@ -17,13 +17,22 @@ class Lobby : public QObject
 public:
     explicit Lobby();
 
-signals:
-    void c_exit();
-    void c_go();
+    /**
+     * get the Data of the lobby
+     * @return data
+     */
+    QList<RowData*> *getData();
 
-public slots:
-    void onCtrlInput(tron::Direction direction, BikeController *controller);
-    void onInput(InputEvent event);
+signals:
+    /**
+     * pressed exit
+     */
+    void c_exit();
+
+    /**
+     * pressed go
+     */
+    void c_go();
 
 protected:
     LobbyWidget *lobbyFrontend;
@@ -38,6 +47,10 @@ protected:
     void addRow(BikeController *controller); //TODO redo this with a controller
     void removeRow(BikeController *controller);
     void changeColor(BikeController *controller);
+
+protected slots:
+    void onCtrlInput(tron::Direction direction, BikeController *controller);
+    void onInput(InputEvent event);
 };
 
 #endif // LOBBY_H
