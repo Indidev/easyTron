@@ -33,6 +33,12 @@ public:
      * @param rows data to display
      */
     void updateTable(QList<RowData *> &rows);
+
+    /**
+     * activate and deactivate the go button
+     * @param active whether it should be active or not
+     */
+    void enableGoButton(bool enabled);
 signals:
     /**
      * indicates that exit was pressed

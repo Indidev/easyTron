@@ -48,7 +48,7 @@ void Lobby::onInput(InputEvent event)
         switch (event.key()) {
         case Qt::Key_Escape : emit c_exit();
             break;
-        case Qt::Key_Return : emit c_go();
+        case Qt::Key_Return : if (rows.size()) emit c_go();
         }
     }
 }
@@ -66,6 +66,8 @@ void Lobby::addRow(BikeController *controller)
     rows.append(new RowData{controller, "", "no Status"});
     nextColor(rows.last());
     lobbyFrontend->updateTable(rows);
+
+    lobbyFrontend->enableGoButton(rows.size());
 }
 
 void Lobby::removeRow(BikeController *controller)
@@ -76,6 +78,8 @@ void Lobby::removeRow(BikeController *controller)
         rows.removeAll(dataPtr);
         lobbyFrontend->updateTable(rows);
     }
+
+    lobbyFrontend->enableGoButton(rows.size());
 }
 
 void Lobby::changeColor(BikeController *controller)

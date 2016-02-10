@@ -9,6 +9,7 @@ LobbyWidget::LobbyWidget() :
     connect(ui->goBtn, SIGNAL(clicked()), this, SIGNAL(c_go()));
 
     ui->contentTable->verticalHeader()->setVisible(false);
+    enableGoButton(false);
 }
 
 LobbyWidget::~LobbyWidget()
@@ -46,6 +47,11 @@ void LobbyWidget::updateTable(QList<RowData *> &rows)
     QTableWidgetItem *lastRow = new QTableWidgetItem("Up: Join, Down: Leave, Left/Right: Change color");
     lastRow->setTextColor(Qt::gray);
     ui->contentTable->setItem(rows.size(), 3, lastRow);
+}
+
+void LobbyWidget::enableGoButton(bool enabled)
+{
+    ui->goBtn->setEnabled(enabled);
 }
 
 
