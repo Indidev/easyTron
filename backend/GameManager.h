@@ -1,6 +1,7 @@
 #ifndef GAMEMANAGER_H
 #define GAMEMANAGER_H
 
+#include "EasyTronDef.h"
 #include <QObject>
 #include <QApplication>
 
@@ -16,13 +17,11 @@
 #include "frontend/game/GameOverScreen.h"
 #include "backend/game/controller/LocalBikeController.h"
 #include "backend/game/Lobby.h"
+#include "backend/util/InputMapping.h"
 
 // todo remove, cause not necessary for the game
 #include "backend/util/InputEvent.h"
 #include "backend/util/JoystickListener.h"
-
-class PlayArea;
-class Lobby;
 
 /**
  * @brief The GameManager class

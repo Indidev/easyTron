@@ -1,6 +1,7 @@
 #ifndef GAMEOVERSCREEN_H
 #define GAMEOVERSCREEN_H
 
+#include "EasyTronDef.h"
 #include <QWidget>
 #include <QKeyEvent>
 

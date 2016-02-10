@@ -5,7 +5,7 @@ Lobby::Lobby()
     lobbyFrontend = new LobbyWidget;
     MainFrame::showWidget(lobbyFrontend);
     connect(InputGrabber::instance(), SIGNAL(inputPress(InputEvent)), this, SLOT(onInput(InputEvent)));
-    connect(InputGrabber::instance(), SIGNAL(ctrlDirection(tron::Direction,BikeController*)), this, SLOT(onCtrlInput(tron::Direction,BikeController*)));
+    connect(InputGrabber::instance(), SIGNAL(ctrlDirection(tron::Direction,BikeController*,bool)), this, SLOT(onCtrlInput(tron::Direction,BikeController*)));
     connect(lobbyFrontend, SIGNAL(c_exit()), this, SIGNAL(c_exit()));
     connect(lobbyFrontend, SIGNAL(c_go()), this, SIGNAL(c_go()));
 }

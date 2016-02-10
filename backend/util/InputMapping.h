@@ -1,6 +1,7 @@
 #ifndef INPUTMAPPING_H
 #define INPUTMAPPING_H
 
+#include "EasyTronDef.h"
 #include <QMap>
 #include <QPair>
 

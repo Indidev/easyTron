@@ -41,6 +41,10 @@ bool InputGrabber::eventFilter(QObject *object, QEvent *event)
     return false;
 }
 
+void InputGrabber::emitCtrlDir(Direction dir, BikeController *ctrl, bool isRelative) {
+    emit ctrlDirection(dir, ctrl, isRelative);
+}
+
 void InputGrabber::press(InputEvent event)
 {
     emit inputPress(event);
@@ -76,7 +80,10 @@ void InputGrabber::unregisterItem(InputInterface *child)
     instance()->childs.removeAll(child);
 }
 
-void InputGrabber::pushedDirection(Direction direction, BikeController *ctrl)
+void InputGrabber::pushedDirection(Direction direction, BikeController *ctrl, bool isRelative)
 {
-    instance()->emitCtrlDir(direction, ctrl);
+    instance()->emitCtrlDir(direction, ctrl, isRelative);
+
+    for (InputInterface *child : instance()->childs)
+        child->onCtrlDirection(direction, ctrl, isRelative);
 }

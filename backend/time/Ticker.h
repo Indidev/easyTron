@@ -1,6 +1,8 @@
 #ifndef TICKER_H
 #define TICKER_H
 
+#include "EasyTronDef.h"
+
 #include <QTimer>
 #include <QTime>
 #include <QList>
@@ -8,8 +10,6 @@
 #include <stdlib.h>
 
 using std::max;
-
-class Refreshable;
 
 /**
  * @brief The Ticker class

@@ -1,6 +1,7 @@
 #ifndef PLAYINGFIELD_H
 #define PLAYINGFIELD_H
 
+#include "EasyTronDef.h"
 #include <QWidget>
 #include <QSize>
 #include <QImage>

@@ -1,6 +1,7 @@
 #ifndef MAINFRAME_H
 #define MAINFRAME_H
 
+#include "EasyTronDef.h"
 #include <QMainWindow>
 #include <QWidget>
 #include <QGridLayout>

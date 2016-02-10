@@ -1,6 +1,7 @@
 #ifndef COUNTDOWNWIDGET_H
 #define COUNTDOWNWIDGET_H
 
+#include "EasyTronDef.h"
 #include <QWidget>
 #include <QGridLayout>
 #include <QLabel>

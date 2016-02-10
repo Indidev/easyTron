@@ -63,7 +63,8 @@ HEADERS  += frontend/MainFrame.h \
     backend/util/InputEvent.h \
     backend/game/Lobby.h \
     frontend/game/LobbyWidget.h \
-    backend/util/InputMapping.h
+    backend/util/InputMapping.h \
+    EasyTronDef.h
 
 FORMS    += frontend/MainFrame.ui \
     frontend/menu/MainMenu.ui \

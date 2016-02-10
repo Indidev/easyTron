@@ -1,6 +1,7 @@
 #ifndef INGAMEMENU_H
 #define INGAMEMENU_H
 
+#include "EasyTronDef.h"
 #include <QWidget>
 
 #include "backend/GameManager.h"

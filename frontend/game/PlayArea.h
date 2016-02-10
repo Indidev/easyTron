@@ -1,6 +1,7 @@
 #ifndef PLAYAREA_H
 #define PLAYAREA_H
 
+#include "EasyTronDef.h"
 #include <QWidget>
 #include <QSize>
 #include <QImage>
@@ -24,8 +25,6 @@
 #include "frontend/LayeredWidget.h"
 
 static const int BORDER_WIDTH = 2;
-
-class GameManager;
 
 /**
  * @brief The PlayArea class

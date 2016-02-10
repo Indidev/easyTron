@@ -1,6 +1,8 @@
 #ifndef INPUTEVENT_H
 #define INPUTEVENT_H
 
+#include "EasyTronDef.h"
+
 #include <QKeyEvent>
 #include <QString>
 

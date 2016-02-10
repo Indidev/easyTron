@@ -1,10 +1,14 @@
 #ifndef BIKECONTROLLER_H
 #define BIKECONTROLLER_H
 
+#include "EasyTronDef.h"
 #include <QString>
+#include <iostream>
 
 #include "backend/game/Bike.h"
 #include "backend/util/InputGrabber.h"
+
+using std::string;
 
 /**
  * abstract class for bike controllers, subclasses are implementing local,
@@ -21,29 +25,22 @@ public: //todo uncouple from bike
     virtual QString toString() = 0;
 
     /**
-     * sets the bike which should be controlled
-     * @param bike bike
-     */
-    void setBike(Bike* bike);
-
-    /**
-     * remove the controllers bike (doesn't delete it!)
-     */
-    void removeBike();
-
-    /**
      * get players name
      */
     QString getName();
 
+    /**
+     * get players name as std::string
+     */
+    string getStdName();
+
 protected:
-    BikeController(QString playerName = "", Bike* bike = NULL);
+    BikeController(QString playerName = "");
 
     void changeDirection(tron::Direction direction);
     void turnLeft();
     void turnRight();
 
-    Bike *bike;
     QString name;
 };
 

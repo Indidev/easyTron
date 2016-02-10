@@ -3,6 +3,7 @@
 
 #ifndef NO_SFML
 
+#include "EasyTronDef.h"
 #include <QTimer>
 #include <SFML/Window/Joystick.hpp>
 #include <QList>

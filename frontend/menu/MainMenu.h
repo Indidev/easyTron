@@ -1,6 +1,7 @@
 #ifndef MAINMENU_H
 #define MAINMENU_H
 
+#include "EasyTronDef.h"
 #include <QWidget>
 
 #include "backend/GameManager.h"

@@ -1,6 +1,7 @@
 #ifndef KEYBOARDGRABBER_H
 #define KEYBOARDGRABBER_H
 
+#include "EasyTronDef.h"
 #include <QObject>
 #include <QApplication>
 #include <QKeyEvent>
@@ -8,8 +9,6 @@
 #include "JoystickListener.h"
 #include "InputEvent.h"
 #include "backend/game/controller/BikeController.h"
-
-class BikeController;
 
 /**
  * @brief The InputGrabber class
@@ -46,7 +45,7 @@ public:
      * @param direction direction which is pressed
      * @param ctrl pointer to the controller
      */
-    static void pushedDirection(tron::Direction direction, BikeController *ctrl);
+    static void pushedDirection(tron::Direction direction, BikeController *ctrl, bool relative = false);
 
 signals:
     /**
@@ -66,23 +65,25 @@ signals:
      * @param direction direction which is pressed
      * @param ctrl pointer to the controller
      */
-    void ctrlDirection(tron::Direction direction, BikeController *ctrl);
+    void ctrlDirection(tron::Direction direction, BikeController *ctrl, bool isRelative);
 
 protected:
     InputGrabber();
     ~InputGrabber();
 
-    virtual bool eventFilter(QObject *object, QEvent *event)override;
     static InputGrabber* self;
     QList<InputInterface*> childs;
 
 #ifndef NO_SFML
     JoystickListener *joyListener;
 #endif
+
+    virtual bool eventFilter(QObject *object, QEvent *event)override;
+    void emitCtrlDir(tron::Direction dir, BikeController *ctrl, bool isRelative = false);
+
 protected slots:
     void press(InputEvent event);
     void release(InputEvent event);
-    void emitCtrlDir(tron::Direction dir, BikeController *ctrl) {emit ctrlDirection(dir, ctrl);}
 };
 
 #endif // KEYBOARDGRABBER_H

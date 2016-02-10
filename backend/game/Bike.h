@@ -1,11 +1,15 @@
 #ifndef BIKE_H
 #define BIKE_H
 
+#include "EasyTronDef.h"
 #include <vector>
 #include <stdlib.h>
 #include <string>
 
 #include "Position.h"
+#include "controller/BikeController.h"
+#include "backend/util/InputGrabber.h"
+#include "backend/util/InputInterface.h"
 
 #include <iostream>
 
@@ -14,18 +18,12 @@ using std::min;
 using std::max;
 using std::string;
 
-namespace tron{
-    enum Direction {up, right, down, left};
-}
-
 using namespace tron;
-
-class Player;
 
 /**
  * @brief The Bike class
  */
-class Bike
+class Bike : public InputInterface
 {
 public:
     /**
@@ -38,7 +36,7 @@ public:
      * @param maxSpeed maximum speed of the bike
      * @param speedUp speedup factor
      */
-    Bike(float x, float y, Direction startDirection, string name, string color = "#ff0000", float baseSpeed = 150, float maxSpeed = 250, float speedUp = 4.f);
+    Bike(float x, float y, Direction startDirection, string color = "#ff0000", BikeController *ctrl = NULL, float baseSpeed = 150, float maxSpeed = 250, float speedUp = 4.f);
 
     /**
      * get path of the bike
@@ -107,7 +105,18 @@ public:
      */
     Direction getCurDirection() {return direction;}
 
-private:
+    /**
+     * set the bikes controller
+     * @param ctrl controller which should control this bike
+     */
+    void setController(BikeController *ctrl);
+
+    /**
+     * inherited from InputInterface
+     */
+    void onCtrlDirection(Direction dir, BikeController *ctrl, bool rel);
+
+protected:
 
     Position position;      // should be self explaining
     Position lastPosition;  //
@@ -123,6 +132,7 @@ private:
     string color;           // color-code as string
     string name;            // name of the player
     vector< vector<Position> > allWalls;
+    BikeController *ctrl;   // controller of the bike
 
     bool isBetween(float point_1, float point_2, float needle);
     bool isBetween_I(int point_1, int point_2, int needle);

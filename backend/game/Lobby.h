@@ -1,6 +1,7 @@
 #ifndef LOBBY_H
 #define LOBBY_H
 
+#include "EasyTronDef.h"
 #include <QObject>
 
 #include "frontend/MainFrame.h"

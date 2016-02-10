@@ -1,6 +1,7 @@
 #ifndef OPTIONS_H
 #define OPTIONS_H
 
+#include "EasyTronDef.h"
 #include <QHash>
 
 #include "backend/io/Input.h"

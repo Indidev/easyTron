@@ -1,6 +1,7 @@
 #ifndef LOBBYWIDGET_H
 #define LOBBYWIDGET_H
 
+#include "EasyTronDef.h"
 #include <QWidget>
 #include <QTableWidgetItem>
 #include <QList>

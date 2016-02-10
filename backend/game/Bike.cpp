@@ -1,12 +1,12 @@
 #include "Bike.h"
 
-Bike::Bike(float x, float y, Direction startDirection, std::string name, std::string color, float baseSpeed, float maxSpeed, float speedUp)
+Bike::Bike(float x, float y, Direction startDirection, std::string color, BikeController *ctrl, float baseSpeed, float maxSpeed, float speedUp)
 {
-    this->name = name;
     gameOver = false;
     position = Position(x, y);
     lastPosition = position;
     path.push_back(position);
+    setController(ctrl);
 
     this->color = color;
     this->direction = startDirection;
@@ -17,6 +17,8 @@ Bike::Bike(float x, float y, Direction startDirection, std::string name, std::st
 
     acceleration = 0;
     speed = baseSpeed;
+
+    InputGrabber::registerItem(this);
 }
 
 vector<Position> Bike::getPath()
@@ -45,6 +47,24 @@ void Bike::update(long millisecond, vector<vector<Position> > &allWalls)
     checkCrash();
     calcAcceleration();
     updatePosition(millisecond);
+}
+
+void Bike::setController(BikeController *ctrl)
+{
+    this->ctrl = ctrl;
+    if (ctrl)
+        name = ctrl->getStdName();
+}
+
+void Bike::onCtrlDirection(Direction dir, BikeController *ctrl, bool rel)
+{
+    if (ctrl == this->ctrl) {
+        if (!rel) {
+            changeDirection(dir);
+        } else {
+            changeDirection((Direction) ((getCurDirection() + (Direction::left?3:1)) % 4));
+        }
+    }
 }
 
 void Bike::calcAcceleration()
@@ -95,16 +115,16 @@ void Bike::updatePosition(float timePased)
     float distance = (speed + oldSpeed) * timePased / 2000; // avg speed = (speed + oldSpeed) / 2
 
     switch (direction) {
-        case up:
+        case tron::up:
             position.y -= distance;
             break;
-        case down:
+        case tron::down:
             position.y += distance;
             break;
-        case left:
+        case tron::left:
             position.x -= distance;
             break;
-        default:    //right
+        case tron::right:
             position.x += distance;
     }
 }

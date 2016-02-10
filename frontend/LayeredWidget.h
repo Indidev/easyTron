@@ -1,6 +1,7 @@
 #ifndef LAYEREDWIDGET_H
 #define LAYEREDWIDGET_H
 
+#include "EasyTronDef.h"
 #include <QWidget>
 #include <QGridLayout>
 #include <QList>

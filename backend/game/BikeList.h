@@ -1,6 +1,7 @@
 #ifndef BIKELIST_H
 #define BIKELIST_H
 
+#include "EasyTronDef.h"
 #include <QList>
 #include <QObject>
 #include <QRect>
@@ -77,7 +78,7 @@ protected:
             }
         }
 
-        if (activeBikes < 2) {
+        if ((activeBikes < 2 && size() > 1) || activeBikes  < 1) {
             Ticker::enable(this, false);
             emit gameOver(winner); //could also be NULL
         }

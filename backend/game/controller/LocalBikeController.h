@@ -1,6 +1,7 @@
 #ifndef LOCALBIKECONTROLLER_H
 #define LOCALBIKECONTROLLER_H
 
+#include "EasyTronDef.h"
 #include <QKeyEvent>
 #include <QString>
 
@@ -21,14 +22,14 @@ public:
      * @param bike bike which should be controlled
      * @param keys keys for control (up, right, down, left)
      */
-    LocalBikeController(int keys[4], QString name = "", Bike* bike = NULL);
+    LocalBikeController(int keys[4], QString name = "");
 
     /**
      * constructs a new local controller
      * @param bike bike which should be controlled
      * @param keys keys for control (up, right, down, left)
      */
-    LocalBikeController(InputEvent keys[4], QString name = "", Bike* bike = NULL);
+    LocalBikeController(InputEvent keys[4], QString name = "");
     ~LocalBikeController();
 
     /**
