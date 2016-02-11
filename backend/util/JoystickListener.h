@@ -11,10 +11,6 @@
 
 #include "InputEvent.h"
 
-//TODO remove this after testing
-#include <iostream>
-using namespace std;
-
 class JoystickListener : public QTimer
 {
     Q_OBJECT

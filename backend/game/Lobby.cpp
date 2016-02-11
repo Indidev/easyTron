@@ -38,7 +38,7 @@ void Lobby::onCtrlInput(Direction direction, BikeController *controller)
             removeRow(controller);
             break;
         default:
-            changeColor(controller);
+            changeColor(controller, direction);
     }
 }
 
@@ -82,11 +82,15 @@ void Lobby::removeRow(BikeController *controller)
     lobbyFrontend->enableGoButton(rows.size());
 }
 
-void Lobby::changeColor(BikeController *controller)
+void Lobby::changeColor(BikeController *controller, Direction dir)
 {
     RowData *dataPtr = findData(controller);
     if (dataPtr) {
-        nextColor(dataPtr);
+        if (dir == Direction::right)
+            nextColor(dataPtr);
+        else
+            prevColor(dataPtr);
+
         lobbyFrontend->updateTable(rows);
     }
 }
@@ -100,6 +104,25 @@ void Lobby::nextColor(RowData *data)
 
     while (data->color.isEmpty() && cancelCounter < 16) {
         index++;
+        index %= colors.size();
+
+        if (!takenColors.contains(colors[index])) {
+            data->color = colors[index];
+            takenColors.append(colors[index]);
+        }
+        cancelCounter++;
+    }
+}
+
+void Lobby::prevColor(RowData *data)
+{
+    int index = colors.indexOf(QRegExp(data->color));
+    takenColors.removeAll(data->color);
+    data->color = "";
+    int cancelCounter = 0;
+
+    while (data->color.isEmpty() && cancelCounter < colors.size()) {
+        index += colors.size() - 1;
         index %= colors.size();
 
         if (!takenColors.contains(colors[index])) {

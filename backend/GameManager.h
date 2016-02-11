@@ -19,10 +19,6 @@
 #include "backend/game/Lobby.h"
 #include "backend/util/InputMapping.h"
 
-// todo remove, cause not necessary for the game
-#include "backend/util/InputEvent.h"
-#include "backend/util/JoystickListener.h"
-
 /**
  * @brief The GameManager class
  * this class manages the game itself

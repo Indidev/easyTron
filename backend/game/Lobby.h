@@ -47,11 +47,12 @@ protected:
     QStringList colors;
 
     void nextColor(RowData *data);
+    void prevColor(RowData *data);
     RowData *findData(BikeController *controller);
 
-    void addRow(BikeController *controller); //TODO redo this with a controller
+    void addRow(BikeController *controller);
     void removeRow(BikeController *controller);
-    void changeColor(BikeController *controller);
+    void changeColor(BikeController *controller, Direction dir);
 
 protected slots:
     void onCtrlInput(tron::Direction direction, BikeController *controller);
